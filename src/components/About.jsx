@@ -17,40 +17,40 @@ const About = () => {
                     <div className='space-y-4'>
                        <div className='flex items-center'>
                            <label htmlFor="html" className="w-2/12">HTML CSS & JS</label>
-                           <div className='grow bg-gray-800 rounded-full h-3.5'>
-                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-3.5 rounded-full 
+                           <div className='grow bg-gray-800 rounded-full h-2.5'>
+                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-11/12'>
                             </div>
                            </div>
                        </div>
                        <div className='flex items-center'>
                            <label htmlFor="html" className="w-2/12">PHP & MYSQL </label>
-                           <div className='grow bg-gray-800 rounded-full h-3.5'>
-                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-3.5 rounded-full 
+                           <div className='grow bg-gray-800 rounded-full h-2.5'>
+                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-10/12'>
                             </div>
                            </div>
                        </div>
                        <div className='flex items-center'>
                            <label htmlFor="html" className="w-2/12">C++ Python & Django </label>
-                           <div className='grow bg-gray-800 rounded-full h-3.5'>
-                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-3.5 rounded-full 
+                           <div className='grow bg-gray-800 rounded-full h-2.5'>
+                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-9/12'>
                             </div>
                            </div>
                        </div>
                        <div className='flex items-center'>
                            <label htmlFor="html" className="w-2/12">Node JS Express JS </label>
-                           <div className='grow bg-gray-800 rounded-full h-3.5'>
-                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-3.5 rounded-full 
+                           <div className='grow bg-gray-800 rounded-full h-2.5'>
+                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-10/12'>
                             </div>
                            </div>
                        </div>
                        <div className='flex items-center'>
                            <label htmlFor="html" className="w-2/12">React JS TS Vite </label>
-                           <div className='grow bg-gray-800 rounded-full h-3.5'>
-                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-3.5 rounded-full 
+                           <div className='grow bg-gray-800 rounded-full h-2.5'>
+                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-9/12'>
                             </div>
                            </div>
@@ -58,8 +58,8 @@ const About = () => {
                        
                        <div className='flex items-center'>
                            <label htmlFor="html" className="w-2/12">MERN STACK </label>
-                           <div className='grow bg-gray-800 rounded-full h-3.5'>
-                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-3.5 rounded-full 
+                           <div className='grow bg-gray-800 rounded-full h-2.5'>
+                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-8/12'>
                             </div>
                            </div>
