@@ -26,10 +26,10 @@ const Footer = () => {
                   Copyright  &copy; {new Date().getFullYear()} Danku Kennedy Edem. All right reserved.
                 </p>
                  <div className='flex space-x-4 md:my-0'>
-                     <a href="#" className='text-gray-400 hover:text-white'>
+                     <a href="https://web.facebook.com/mofty.chemical" target='_blank' className='text-gray-400 hover:text-white'>
                         <FaFacebook />
                      </a>
-                     <a href="https://www.linkedin.com/in/kennedy-edem-danku-839108137"target='_blank' className='text-gray-400 hover:text-white'>
+                     <a href="https://www.linkedin.com/in/kennedy-edem-danku-839108137" target='_blank' className='text-gray-400 hover:text-white'>
                         <FaLinkedin />
                      </a>
                      <a href="https://github.com/dankukennedy" target="_blank" className='text-gray-400 hover:text-white'>
