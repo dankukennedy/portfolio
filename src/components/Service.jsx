@@ -45,7 +45,7 @@ const Service = () => {
                     <div key={service.id}
                     className='bg-gray-800 px-6 pb-6 rounded-lg hover:shadow-lg transform transition-transform duration-300 hover:scale-105'>
                         <div className='text-right text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-400'>
-                        {service.id}                    
+                        <b className=' py-0 px-3 bg-white bg-gradient-to-r from-blue-300 to-blue-600 text-white'>{service.id} </b>
                         </div>
                         <h3 className='mt-2 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
                             {service.title}

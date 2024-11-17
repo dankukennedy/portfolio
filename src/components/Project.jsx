@@ -14,40 +14,41 @@ const projects =[
         image:Flyer,
         github:"https://github.com/dankukennedy",
     },
+    
     {
         id:2,
-        name:"Blog",
-        technologies:"Next.js ",
-        image:Blog,
-        github:"httpshttps://github.com/dankukennedy/nextjsblog",
-    },
-    {
-        id:3,
-        name:"Node Series",
-        technologies:"Node JS",
-        image:Node,
-        github:"https://github.com/dankukennedy/node-series",
-    },
-    {
-        id:4,
         name:"CIC Management System",
         technologies:"HTML,PHP,Mysql,CSS & JavaScript",
         image:CIC,
         github:"https://github.com/dankukennedy/CIC-Managemnt-System",
     },
     {
-        id:5,
+        id:3,
         name:"E-commerce",
         technologies:"HTML,PHP,Mysql,CSS,Ajax & JavaScript",
         image:Commerce,
         github:"https://github.com/dankukennedy/Ecommerce-site",
     },
     {
-        id:6,
+        id:4,
         name:"Transcript Management System",
-        technologies:"HTML,PHP,Mysql,CSS",
+        technologies:"HTML,PHP,Mysql,CSS & Bootstrap",
         image:Transcript,
         github:"https://github.com/dankukennedy/transway",
+    },
+    {
+        id:5,
+        name:"Blog",
+        technologies:"Next.js ",
+        image:Blog,
+        github:"httpshttps://github.com/dankukennedy/nextjsblog",
+    },
+    {
+        id:6,
+        name:"Node Series",
+        technologies:"Node JS",
+        image:Node,
+        github:"https://github.com/dankukennedy/node-series",
     },
 ]
 
