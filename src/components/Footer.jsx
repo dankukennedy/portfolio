@@ -25,7 +25,7 @@ const Footer = () => {
                 <p className='text-gray-400'>
                   Copyright  &copy; {new Date().getFullYear()} Danku Kennedy Edem. All right reserved.
                 </p>
-                 <div className='flex space-x-4 md:my-0'>
+                 <div className='flex space-x-4 md:my-1'>
                      <a href="https://web.facebook.com/mofty.chemical" target='_blank' className='text-green-600 hover:text-white'>
                         <FaFacebook />
                      </a>
@@ -41,7 +41,7 @@ const Footer = () => {
                      <a href="#" className='text-green-600 hover:text-white'>
                         <FaTelegram/>
                      </a>
-                     <div className='flex space-x-4'>
+                     <div className='flex space-x-4 md:my-0'>
                         <a href="" className='text-gray-400 hover:text-white'>
                             Privacy
                         </a>
