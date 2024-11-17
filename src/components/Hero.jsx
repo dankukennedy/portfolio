@@ -1,5 +1,6 @@
 import React from 'react'
 import HeroImage from  '../assets/office.jpeg'
+import cv from  '../assets/files/CV.pdf'
 
 const Hero = () => {
   return (
@@ -16,7 +17,7 @@ const Hero = () => {
          </p>
          <div className='mt-8 space-x-4 '>
             <button className='bg-gradient-to-r from-green-400 to-blue-500 text-white md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full'>Contact With Me</button>
-          <a href="assets/files/CV.pdf" download="D.K Edem CV.pdf" className="inline-block">
+          <a href={cv} download className="inline-block">
             <button className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full">
              My Resume
             </button>
