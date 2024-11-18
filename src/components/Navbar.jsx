@@ -18,9 +18,9 @@ const Navbar = () => {
           <img 
             src={logo} 
             alt="Logo" 
-            className="w-15 h-10 mr-2 rounded" // Adjust size as needed
+            className="w-15 h-10 mr-2 rounded " // Adjust size as needed
           />
-          <span className="text-2xl font-bold">Edem</span>
+          <span className="p-1 text-2xl font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">Edem</span>
         </a>
         
         {/* Hamburger Icon */}
@@ -35,11 +35,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <a href="#home" className="hover:text-gray-400">Home</a>
-          <a href="#about" className="hover:text-gray-400">About</a>
-          <a href="#service" className="hover:text-gray-400">Services</a>
-          <a href="#project" className="hover:text-gray-400">Projects</a>
-          <a href="#contact" className="hover:text-gray-400">Contact</a>
+          <a href="#home"className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">Home</a>
+          <a href="#about" className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">About</a>
+          <a href="#service" className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">Services</a>
+          <a href="#project" className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">Projects</a>
+          <a href="#contact" className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">Contact</a>
         </div>
 
         {/* Desktop Button */}
@@ -52,11 +52,11 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="flex flex-col space-y-4 mt-4 text-center">
-            <a href="#home" className="hover:text-gray-400">Home</a>
-            <a href="#about" className="hover:text-gray-400">About Me</a>
-            <a href="#service" className="hover:text-gray-400">Services</a>
-            <a href="#project" className="hover:text-gray-400">Projects</a>
-            <a href="#contact" className="hover:text-gray-400">Contact</a>
+            <a href="#home" className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">Home</a>
+            <a href="#about" className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">About Me</a>
+            <a href="#service" className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">Services</a>
+            <a href="#project" className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">Projects</a>
+            <a href="#contact" className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded">Contact</a>
           </div>
         </div>
       )}
