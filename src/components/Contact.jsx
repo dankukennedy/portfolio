@@ -17,6 +17,12 @@ const Contact = () => {
                     </a>
                   </div>
                   <div className='mb-4 '>
+                    <FaEnvelope className='inline-block text-green-600 mr-2'></FaEnvelope>
+                    <a href="mcsharpest02@gmail.com" className='hover:underline'>
+                    mcsharpest02@gmail.com
+                    </a>
+                  </div>
+                  <div className='mb-4 '>
                     <FaPhone className='inline-block text-green-600 mr-2'></FaPhone>
                      <span>+233 247836603</span>
                   </div>
@@ -42,6 +48,12 @@ const Contact = () => {
                           <input type="text"
                           className='w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400'
                           placeholder='Enter Your Email' />
+                    </div>
+                    <div >
+                          <label htmlFor="name" className='block mb-2'>Your Contact</label>
+                          <input type="number"
+                          className='w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400'
+                          placeholder='Enter Your Number eg. 0240025650' />
                     </div>
                     <div >
                           <label htmlFor="message" className='block mb-2'>Your Message</label>
