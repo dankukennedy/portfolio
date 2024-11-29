@@ -31,9 +31,9 @@ const Contact = () => {
                      <span>+233 203760941</span>
                   </div>
                   <div className='mb-4 '>
-                    <FaWhatsapp className='inline-block text-green-600 mr-2'></FaWhatsapp>
+                    <FaWhatsapp className='inline-block text-green-600 mr-2 '></FaWhatsapp>
                     <a href="https://wa.me/message/EXF33XUPKEM3E1" target="_blank" className='hover:underline'>
-                   WhatsApp Me
+                    <span className='hover:bg-gradient-to-r from-green-600 to-blue-500 mb-4'>WhatsApp Me</span>
                     </a>
                   </div>
                   <div className='mb-4 '>
