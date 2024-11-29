@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaEnvelope,FaPhone, FaMapMarkedAlt, FaMobile} from 'react-icons/fa'
+import { FaEnvelope,FaPhone, FaMapMarkedAlt, FaMobile, FaWhatsapp} from 'react-icons/fa'
 
 const Contact = () => {
   return (
@@ -29,6 +29,12 @@ const Contact = () => {
                   <div className='mb-4 '>
                     <FaMobile className='inline-block text-green-600 mr-2'></FaMobile>
                      <span>+233 203760941</span>
+                  </div>
+                  <div className='mb-4 '>
+                    <FaWhatsapp className='inline-block text-green-600 mr-2'></FaWhatsapp>
+                    <a href="https://wa.me/message/EXF33XUPKEM3E1" target="_blank" className='hover:underline'>
+                   WhatsApp Me
+                    </a>
                   </div>
                   <div className='mb-4 '>
                     <FaMapMarkedAlt className='inline-block text-green-600 mr-2'></FaMapMarkedAlt>
