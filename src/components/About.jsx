@@ -103,6 +103,13 @@ const About = () => {
                             </h3>
                              <p> New Projects</p>
                         </div>
+                        <div>
+                            <h3 className='text-2xl font-bold text-transparent bg-clip-text 
+                            bg-gradient-to-r from-green-500 to-blue-500'>
+                             Education
+                            </h3>
+                            <a href="https://dankukennedy.github.io/" target="_blank" className="p-1 hover:text-white font-bold hover:bg-gradient-to-r from-green-300 to-blue-500 rounded"> Visit Profile</a>
+                        </div>
                     </div>
                  </div> 
             </div>
