@@ -2,6 +2,8 @@ import React from 'react'
 import { FaFacebook, FaGithubAlt, FaLinkedin, FaTelegram, FaTwitter } from 'react-icons/fa'
 
 const Footer = () => {
+
+    //API  https://portfolioapi-ixx3.onrender.com
   return (
     <footer className='bg-black text-white py-8'>
         <div className='container  mx-auto px-8 md:px-16 lg:px-24' >
@@ -48,7 +50,7 @@ const Footer = () => {
                         <a href="" className='text-gray-400 hover:text-white'>
                             Terms of Service
                         </a>
-                        
+
                      </div>
                  </div>
             </div>

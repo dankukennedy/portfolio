@@ -47,7 +47,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const url = 'https://your-api-url-here.com/contact'; 
+      const url = 'https://portfolioapi-ixx3.onrender.com/contact'; 
       const response = await fetch(url, {
         method: 'POST',
         headers: {
