@@ -112,7 +112,7 @@ const Hero = () => {
           onClick={togglePopup}
           className="bg-gradient-to-r from-blue-400 to-blue-900 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full"
         >
-          My Service
+         Request My Services
         </button>
 
         {isOpen && (
