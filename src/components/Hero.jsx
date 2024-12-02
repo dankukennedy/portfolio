@@ -44,7 +44,7 @@ const Hero = () => {
 
     try {
       // Replace with your API URL
-      const response = await fetch('https://portfolioapi-ixx3.onrender.com/api/requirement', {
+      const response = await fetch('https://portfolioapi-17m9.onrender.com/api/requirement', {
         method: 'POST',
         body: formDataToSubmit,
       });
