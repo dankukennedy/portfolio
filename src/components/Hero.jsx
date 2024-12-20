@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HeroImage from '../assets/office.jpeg';
-import cv from '../assets/files/CV.pdf';
+import cv from '../assets/files/DKE-CV.pdf';
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false); // State to manage popup visibility
