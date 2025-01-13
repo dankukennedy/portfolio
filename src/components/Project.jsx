@@ -6,6 +6,8 @@ import CIC from '../assets/projects/cic.jpeg'
 import Commerce from '../assets/projects/ecommerce.jpeg'
 import Transcript from '../assets/projects/transcript.jpeg'
 
+
+
 const projects =[
     {
         id:1,

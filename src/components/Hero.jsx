@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import HeroImage from '../assets/office.jpeg';
 import cv from '../assets/files/DKE-CV.pdf';
 
+
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false); // State to manage popup visibility
   const [loading, setLoading] = useState(false); // Loading state
@@ -88,7 +89,7 @@ const Hero = () => {
       />
       <h1 className="text-4xl font-bold">
         I'm{' '}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-blue-600">
           Danku Kennedy Edem
         </span>{' '}
         Full-Stack Developer
@@ -98,31 +99,36 @@ const Hero = () => {
       </p>
       <div className="mt-8 space-x-4">
         <a href="https://www.linkedin.com/in/kennedy-edem-danku-839108137" target="_blank" rel="noopener noreferrer">
-          <button className="bg-gradient-to-r from-green-400 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full">
+          <button className="bg-gradient-to-r text-xl from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full">
             LinkedIn Profile
           </button>
         </a>
+        <a href="https://gravatar.com/happilywise8526b101c9" target="_blank" rel="noopener noreferrer">
+          <button className="bg-gradient-to-r text-xl  from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full">
+            Gravatar 
+          </button>
+        </a>
         <a href={cv} download className="inline-block">
-          <button className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full">
-            My Resume
+          <button className="bg-gradient-to-r text-xl from-green-500 to-blue-600 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full">
+          My Resume ⬇️
           </button>
         </a>
 
         <button
           onClick={togglePopup}
-          className="bg-gradient-to-r from-blue-400 to-blue-900 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full"
+          className="bg-gradient-to-r text-xl from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full"
         >
          Request My Services
         </button>
 
         {isOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-red-400 bg-opacity-80  p-6 rounded shadow-lg w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3">
+          <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-black bg-opacity-80  p-6 rounded shadow-lg w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3">
               <button
                 onClick={togglePopup}
                 className="text-white float-right font-bold"
               >
-                X
+                <span className='text-2xl px-2 rounded-md bg-red-700'>X</span>
               </button>
               <h2 className="text-2xl font-bold mb-4 text-center  text-white">Fill Your Requirement Form </h2>
               <form onSubmit={handleSubmit} className="space-y-4">
