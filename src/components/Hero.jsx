@@ -109,7 +109,7 @@ const Hero = () => {
           </button>
         </a>
         <a href={cv} download className="inline-block">
-          <button className="bg-gradient-to-r text-xl from-green-500 to-blue-600 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full">
+          <button className="bg-gradient-to-r text-xl from-green-500 to-blue-700 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full">
           My Resume ⬇️
           </button>
         </a>
