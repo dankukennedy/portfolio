@@ -10,11 +10,11 @@ const About = () => {
                 <img src={AboutImage} alt="" 
                 className='w-75 h-80 rounded object-center mb-8 md:mb-0'/>
                  <div className='flex-1 ' >
-                   <p className='text-lg mb-8 '>
+                   <p className='text-lg mb-8 px-2'>
                      I am a passionate full-stack developer with a focus on building modern and responsive web applications. With a strong 
                      foundation in both frontend and backend technologies, i strive to create seamless and efficient user experiences,
                   </p>
-                    <div className='space-y-4'>
+                    <div className='space-y-4 px-2'>
                        <div className='flex items-center'>
                            <label htmlFor="html" className="w-2/12">HTML CSS & JS</label>
                            <div className='grow bg-gray-800 rounded-full h-2.5'>
@@ -74,29 +74,29 @@ const About = () => {
                            </div>
                        </div>
                     </div>
-                    <div className='mt-12 flex justify-between text-center'>
-                        <div>
+                    <div className='mt-12 flex justify-between text-center px-1'>
+                        <div className='p-1'>
                             <h3 className='text-2xl font-bold text-transparent bg-clip-text 
                             bg-gradient-to-r from-green-500 to-blue-500'>
                                 5+
                             </h3>
-                             <p> Years Experience</p>
+                             <p> Years Experience </p>
                         </div>
-                        <div>
+                        <div className='p-1'>
                             <h3 className='text-2xl font-bold text-transparent bg-clip-text 
                             bg-gradient-to-r from-green-500 to-blue-500'>
                                 10+
                             </h3>
-                             <p> Projects Completed</p>
+                             <p> Projects Completed </p>
                         </div>
-                        <div>
+                        <div className='p-1'>
                             <h3 className='text-2xl font-bold text-transparent bg-clip-text 
                             bg-gradient-to-r from-green-500 to-blue-500'>
                                 6+
                             </h3>
                              <p> Happy Clients </p>
                         </div>
-                        <div>
+                        <div className='p-1'>
                             <h3 className='text-2xl font-bold text-transparent bg-clip-text 
                             bg-gradient-to-r from-green-500 to-blue-500'>
                                 5+

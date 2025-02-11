@@ -43,7 +43,7 @@ const projects =[
         name:"Blog",
         technologies:"Next.js ",
         image:Blog,
-        github:"httpshttps://github.com/dankukennedy/nextjsblog",
+        github:"https://github.com/dankukennedy/nextjsblog",
     },
     {
         id:6,
