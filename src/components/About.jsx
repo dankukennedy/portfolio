@@ -16,7 +16,7 @@ const About = () => {
                   </p>
                     <div className='space-y-4 px-2'>
                        <div className='flex items-center px-6'>
-                           <label htmlFor="html" className="w-2/12 font-serif px-2">HTML CSS & JS</label>
+                           <label htmlFor="html" className="w-2/12 font-serif px-2 mr-8">HTML CSS JS</label>
                            <div className='grow bg-gray-800 rounded-full h-2.5'>
                             <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-11/12'>
@@ -24,7 +24,7 @@ const About = () => {
                            </div>
                        </div>
                        <div className='flex items-center px-6'>
-                           <label htmlFor="html" className="w-2/12 font-serif px-2">PHP & MYSQL </label>
+                           <label htmlFor="html" className="w-2/12 font-serif px-2 mr-8">PHP MYSQL </label>
                            <div className='grow bg-gray-800 rounded-full h-2.5'>
                             <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-10/12'>
@@ -32,7 +32,7 @@ const About = () => {
                            </div>
                        </div>
                        <div className='flex items-center px-6'>
-                           <label htmlFor="html" className="w-2/12 font-serif px-2">C++ Python & Django </label>
+                           <label htmlFor="html" className="w-2/12 font-serif px-2 mr-8">C++ Python </label>
                            <div className='grow bg-gray-800 rounded-full h-2.5'>
                             <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-9/12'>
@@ -40,7 +40,7 @@ const About = () => {
                            </div>
                        </div>
                        <div className='flex items-center px-6'>
-                           <label htmlFor="html" className="w-2/12 font-serif px-2">Node JS Express JS </label>
+                           <label htmlFor="html" className="w-2/12 font-serif px-2 mr-8">Node Express </label>
                            <div className='grow bg-gray-800 rounded-full h-2.5'>
                             <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-10/12'>
@@ -48,16 +48,7 @@ const About = () => {
                            </div>
                        </div>
                        <div className='flex items-center px-6'>
-                           <label htmlFor="html" className="w-2/12 font-serif px-2">React JS TS Vite </label>
-                           <div className='grow bg-gray-800 rounded-full h-2.5'>
-                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
-                            transform transition-transform duration-300 hover:scale-105 w-9/12'>
-                            </div>
-                           </div>
-                       </div>
-                       
-                       <div className='flex items-center px-6'>
-                           <label htmlFor="html" className="w-2/12 font-serif px-2">MERN STACK </label>
+                           <label htmlFor="html" className="w-2/12 font-serif px-2 mr-8">React Vite TS </label>
                            <div className='grow bg-gray-800 rounded-full h-2.5'>
                             <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-8/12'>
@@ -66,10 +57,19 @@ const About = () => {
                        </div>
                        
                        <div className='flex items-center px-6'>
-                           <label htmlFor="html" className="w-2/12 font-serif px-2">Laravel </label>
+                           <label htmlFor="html" className="w-2/12 font-serif px-2 mr-8">MERN STACK </label>
                            <div className='grow bg-gray-800 rounded-full h-2.5'>
                             <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
                             transform transition-transform duration-300 hover:scale-105 w-7/12'>
+                            </div>
+                           </div>
+                       </div>
+                       
+                       <div className='flex items-center px-6'>
+                           <label htmlFor="html" className="w-2/12 font-serif px-2 mr-8">Laravel </label>
+                           <div className='grow bg-gray-800 rounded-full h-2.5 '>
+                            <div className='bg-gradient-to-r from-green-400 to-blue-600 h-2.5 rounded-full 
+                            transform transition-transform duration-300 hover:scale-105 w-6/12'>
                             </div>
                            </div>
                        </div>

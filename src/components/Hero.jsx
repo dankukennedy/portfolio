@@ -95,28 +95,28 @@ const Hero = () => {
         Full-Stack Developer
       </h1>
       <p className="mt-4 text-lg text-gray-100">
-        I specialize in building modern and responsive web applications.
+        <marquee className="font-serif text-2xl text-black">I specialize in building modern and responsive web applications.</marquee>
       </p>
       <div className="mt-8 space-x-4">
         <a href="https://www.linkedin.com/in/kennedy-edem-danku-839108137" target="_blank" rel="noopener noreferrer">
-          <button className="bg-gradient-to-r text-xl from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full">
+          <button className="bg-gradient-to-r text-xl from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full hover:border-4">
             LinkedIn Profile
           </button>
         </a>
         <a href="https://gravatar.com/happilywise8526b101c9" target="_blank" rel="noopener noreferrer">
-          <button className="bg-gradient-to-r text-xl  from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full">
+          <button className="bg-gradient-to-r text-xl  from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full hover:border-4">
             Gravatar 
           </button>
         </a>
         <a href={cv} download className="inline-block">
-          <button className="bg-gradient-to-r text-xl from-green-500 to-blue-700 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full">
+          <button className="bg-gradient-to-r text-xl from-green-500 to-blue-700 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full hover:border-4">
           My Resume ⬇️
           </button>
         </a>
 
         <button
           onClick={togglePopup}
-          className="bg-gradient-to-r text-xl from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full"
+          className="bg-gradient-to-r text-xl from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full hover:border-4"
         >
          Request My Services
         </button>
