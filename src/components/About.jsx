@@ -11,7 +11,7 @@ const About = () => {
                 className='w-75 h-80 rounded-3xl object-center mb-8 md:mb-0 border-8 border-blue-800 transform transition-transform duration-300 hover:scale-105 hover:border-green-600'/>
                  <div className='flex-1 ' >
                    <p className='text-lg mb-8 px-8 '>
-                     I am a passionate Software Engineer with a focus on building modern and responsive web applications. With a strong 
+                     I am a passionate software engineer with a focus on building modern and responsive web applications. With a strong 
                      foundation in both frontend and backend technologies, i strive to create seamless and efficient user experiences,
                   </p>
                     <div className='space-y-4 px-2'>
