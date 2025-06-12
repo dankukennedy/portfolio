@@ -92,7 +92,7 @@ const Hero = () => {
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-blue-600">
           Danku Kennedy Edem
         </span>{' '}
-        Full-Stack Developer
+       Software Engineer
       </h1>
       <p className="mt-4 text-lg text-gray-100">
         <marquee className="font-serif text-2xl text-black">I specialize in building modern and responsive web applications.</marquee>
