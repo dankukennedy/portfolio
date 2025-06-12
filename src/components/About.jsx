@@ -6,12 +6,12 @@ const About = () => {
     <div className='bg-black text-white py-20 ' id='about'>
         <div className='container mx-auto px-8 md:px-16 lg:px:24'>
             <h2 className='text-4xl font-bold text-center mb-12'>About Me</h2>
-            <div className='flex flex-col md:flex-row items-center md:space-x-12 '> 
-                <img src={AboutImage} alt="profile" 
+            <div className='flex flex-col md:flex-row items-center md:space-x-12 '>
+                <img src={AboutImage} alt="profile"
                 className='w-75 h-80 rounded-3xl object-center mb-8 md:mb-0 border-8 border-blue-800 transform transition-transform duration-300 hover:scale-105 hover:border-green-600'/>
                  <div className='flex-1 ' >
                    <p className='text-lg mb-8 px-8 '>
-                     I am a passionate full-stack developer with a focus on building modern and responsive web applications. With a strong 
+                     I am a passionate Software Engineer with a focus on building modern and responsive web applications. With a strong 
                      foundation in both frontend and backend technologies, i strive to create seamless and efficient user experiences,
                   </p>
                     <div className='space-y-4 px-2'>

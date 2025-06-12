@@ -1,6 +1,6 @@
 import React from 'react'
 
-const services =[
+const services = [
     {
         id:1,
         title:"Web Design",
