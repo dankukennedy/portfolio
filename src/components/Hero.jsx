@@ -89,10 +89,13 @@ const Hero = () => {
       />
       <h1 className="text-4xl font-bold">
         I'm{' '}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-blue-600">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-900 to-blue-900">
           Danku Kennedy Edem
         </span>{' '}
-       IT Professional || Software Engineer || Full-Stack Architect
+        <p className='m-4'>
+        <span className="m-2 text-2xl font-serif "><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰IT Professional 🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Software Engineer🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Full-Stack Architect🔰</span></span>
+        </p>
+        
       </h1>
       <p className="mt-4 text-lg text-gray-100">
         <marquee className="font-serif text-2xl text-black">I specialize in building modern and responsive web applications.</marquee>
