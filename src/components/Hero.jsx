@@ -80,7 +80,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="py-16 text-center text-white bg-gradient-to-r from-red-400 to-red-500">
+    <div className="py-16 text-center text-white bg-gradient-to-r from-red-400 to-red-600">
       <ToastContainer />
       <img
         src={HeroImage}
@@ -89,11 +89,12 @@ const Hero = () => {
       />
       <h1 className="text-4xl font-bold">
         I'm{' '}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-900 to-blue-900">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-950">
           Danku Kennedy Edem
         </span>{' '}
         <p className='m-4'>
-        <span className="m-2 font-serif text-2xl "><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰IT Professional🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Software Engineer🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Full-Stack Architect🔰</span></span>
+        <span className="m-2 font-serif text-2xl ">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰IT Professional🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Software Engineer🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Full-Stack Architect🔰</span></span>
         </p>
         
       </h1>

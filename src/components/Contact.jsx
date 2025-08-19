@@ -87,7 +87,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="py-20 text-white bg-gradient-to-r from-red-300 to-red-500" id="contact">
+    <div className="py-20 text-white bg-gradient-to-r from-red-400 to-red-600" id="contact">
       <ToastContainer />
       <div className="container px-8 mx-auto md:px-16 lg:px-24">
         <h2 className="mb-12 text-4xl font-bold text-center">Contact Me</h2>

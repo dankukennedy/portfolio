@@ -37,7 +37,7 @@ const services = [
 const Service = () => {
   return (
     <div >
-        <div className='py-20 text-white bg-gradient-to-r from-red-300 to-red-500 ' id='service'>
+        <div className='py-20 text-white bg-gradient-to-r from-red-400 to-red-600 ' id='service'>
            <div className='container px-8 mx-auto md:px-16 lg:px:24'>
              <h2 className='mb-12 text-4xl font-bold text-center'>My Services</h2>
               <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 '>
@@ -45,7 +45,7 @@ const Service = () => {
                     <div key={service.id}
                     className='px-6 pb-6 transition-transform duration-300 transform bg-gray-800 border-8 rounded-lg hover:shadow-lg hover:scale-105 hover:border-green-600 '>
                         <div className='text-2xl font-bold text-right text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-400'>
-                        <b className='px-3 py-0 text-white bg-white  bg-gradient-to-r from-blue-300 to-blue-600'>{service.id} </b>
+                        <b className='px-3 py-0 text-white bg-white bg-gradient-to-r from-blue-300 to-blue-600'>{service.id} </b>
                         </div>
                         <h3 className='mt-2 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
                             {service.title}

@@ -24,7 +24,8 @@ const Navbar = () => {
         </a>
         
         {/* Hamburger Icon */}
-        <button
+        <button 
+         aria-label="Toggle Menu"
           onClick={toggleMenu}
           className="md:hidden focus:outline-none"
         >
