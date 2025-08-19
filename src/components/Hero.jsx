@@ -80,12 +80,12 @@ const Hero = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-red-200 to-red-500 text-white text-center py-16">
+    <div className="py-16 text-center text-white bg-gradient-to-r from-red-400 to-red-500">
       <ToastContainer />
       <img
         src={HeroImage}
         alt="Hero"
-        className="mx-auto mb-8 w-48 h-48 rounded-full object-cover transform transition-transform duration-300 hover:scale-105 border-8 hover:border-green-600"
+        className="object-cover w-48 h-48 mx-auto mb-8 transition-transform duration-300 transform border-8 rounded-full hover:scale-105 hover:border-green-600"
       />
       <h1 className="text-4xl font-bold">
         I'm{' '}
@@ -93,7 +93,7 @@ const Hero = () => {
           Danku Kennedy Edem
         </span>{' '}
         <p className='m-4'>
-        <span className="m-2 text-2xl font-serif "><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰IT Professional🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Software Engineer🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Full-Stack Architect🔰</span></span>
+        <span className="m-2 font-serif text-2xl "><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰IT Professional🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Software Engineer🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Full-Stack Architect🔰</span></span>
         </p>
         
       </h1>
@@ -102,38 +102,38 @@ const Hero = () => {
       </p>
       <div className="mt-8 space-x-4">
         <a href="https://www.linkedin.com/in/kennedy-edem-danku-839108137" target="_blank" rel="noopener noreferrer">
-          <button className="bg-gradient-to-r text-xl from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full hover:border-4">
+          <button className="px-4 py-2 text-xl text-white transition-transform duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-blue-500 hover:scale-105 hover:border-4">
             LinkedIn Profile
           </button>
         </a>
         <a href="https://gravatar.com/happilywise8526b101c9" target="_blank" rel="noopener noreferrer">
-          <button className="bg-gradient-to-r text-xl  from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full hover:border-4">
+          <button className="px-4 py-2 text-xl text-white transition-transform duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-blue-500 hover:scale-105 hover:border-4">
             Gravatar 
           </button>
         </a>
         <a href={cv} download className="inline-block">
-          <button className="bg-gradient-to-r text-xl from-green-500 to-blue-700 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full hover:border-4">
+          <button className="px-4 py-2 my-1 text-xl text-white transition-transform duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-blue-700 hover:scale-105 hover:border-4">
           My Resume ⬇️
           </button>
         </a>
 
         <button
           onClick={togglePopup}
-          className="bg-gradient-to-r text-xl from-green-500 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 my-1 py-2 rounded-full hover:border-4"
+          className="px-4 py-2 my-1 text-xl text-white transition-transform duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-blue-500 hover:scale-105 hover:border-4"
         >
          Request My Services
         </button>
 
         {isOpen && (
-          <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-black bg-opacity-80  p-6 rounded shadow-lg w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-50">
+            <div className="w-11/12 p-6 bg-black rounded shadow-lg bg-opacity-80 sm:w-3/4 md:w-1/2 lg:w-1/3">
               <button
                 onClick={togglePopup}
-                className="text-white float-right font-bold"
+                className="float-right font-bold text-white"
               >
-                <span className='text-2xl px-2 rounded-md bg-red-700'>X</span>
+                <span className='px-2 text-2xl bg-red-700 rounded-md'>X</span>
               </button>
-              <h2 className="text-2xl font-bold mb-4 text-center  text-white">Fill Your Requirement Form </h2>
+              <h2 className="mb-4 text-2xl font-bold text-center text-white">Fill Your Requirement Form </h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block mb-2 ">
@@ -142,7 +142,7 @@ const Hero = () => {
                   <input
                     type="text"
                     id="name"
-                    className="w-full p-2 border rounded bg-transparent border-gray-300 text-white"
+                    className="w-full p-2 text-white bg-transparent border border-gray-300 rounded"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
@@ -158,7 +158,7 @@ const Hero = () => {
                   <input
                     type="email"
                     id="email"
-                    className="w-full p-2 border rounded bg-transparent border-gray-300 text-white"
+                    className="w-full p-2 text-white bg-transparent border border-gray-300 rounded"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -174,7 +174,7 @@ const Hero = () => {
                   <input
                     type="tel" // Changed type from 'number' to 'tel'
                     id="number"
-                    className="w-full p-2 border rounded bg-transparent border-gray-300 text-white"
+                    className="w-full p-2 text-white bg-transparent border border-gray-300 rounded"
                     value={formData.number}
                     onChange={(e) =>
                       setFormData({ ...formData, number: e.target.value })
@@ -190,7 +190,7 @@ const Hero = () => {
                   <textarea
                     id="message"
                     rows="4"
-                    className="w-full p-2 border rounded bg-transparent border-gray-300 text-white"
+                    className="w-full p-2 text-white bg-transparent border border-gray-300 rounded"
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
@@ -207,7 +207,7 @@ const Hero = () => {
                   <input
                     type="file"
                     id="file"
-                    className="w-full p-2 border rounded bg-transparent border-gray-300 text-white"
+                    className="w-full p-2 text-white bg-transparent border border-gray-300 rounded"
                     onChange={handleFileChange}
                   />
                 </div>
@@ -215,7 +215,7 @@ const Hero = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-gradient-to-r from-green-400 to-blue-600 text-white px-4 py-2 rounded hover:bg-green-600 disabled:opacity-50 w-full mt-4"
+                  className="w-full px-4 py-2 mt-4 text-white rounded bg-gradient-to-r from-green-400 to-blue-600 hover:bg-green-600 disabled:opacity-50"
                 >
                   {loading ? 'Submitting...' : 'Submit'}
                 </button>

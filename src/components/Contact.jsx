@@ -87,32 +87,32 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-red-200 to-red-500 text-white py-20" id="contact">
+    <div className="py-20 text-white bg-gradient-to-r from-red-300 to-red-500" id="contact">
       <ToastContainer />
-      <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
-        <div className="flex flex-col md:flex-row items-center md:space-x-12">
+      <div className="container px-8 mx-auto md:px-16 lg:px-24">
+        <h2 className="mb-12 text-4xl font-bold text-center">Contact Me</h2>
+        <div className="flex flex-col items-center md:flex-row md:space-x-12">
           <div className="flex-1">
-            <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-500 mb-4">
+            <h3 className="mb-4 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-500">
               Let's Talk
             </h3>
             <p>I'm open to discussing web development projects or partnership opportunities</p>
-            <div className="mb-4 mt-8">
-              <FaEnvelope className="inline-block text-green-600 mr-2" />
+            <div className="mt-8 mb-4">
+              <FaEnvelope className="inline-block mr-2 text-green-600" />
               <a href="mailto:dankukennedy@gmail.com" className="hover:underline">
                 dankukennedy@gmail.com
               </a>
             </div>
             <div className="mb-4">
-              <FaPhone className="inline-block text-green-600 mr-2" />
+              <FaPhone className="inline-block mr-2 text-green-600" />
               <span>+233 247836603</span>
             </div>
             <div className="mb-4">
-              <FaMobile className="inline-block text-green-600 mr-2" />
+              <FaMobile className="inline-block mr-2 text-green-600" />
               <span>+233 203760941</span>
             </div>
             <div className="mb-4">
-              <FaWhatsapp className="inline-block text-green-600 mr-2" />
+              <FaWhatsapp className="inline-block mr-2 text-green-600" />
               <a
                 href="https://wa.me/message/EXF33XUPKEM3E1"
                 target="_blank"
@@ -123,7 +123,7 @@ const Contact = () => {
               </a>
             </div>
             <div className="mb-4">
-              <FaMapMarkedAlt className="inline-block text-green-600 mr-2" />
+              <FaMapMarkedAlt className="inline-block mr-2 text-green-600" />
               <span>F224 Barbet ST, GD-269-4680, Amrahia, Accra Ghana</span>
             </div>
           </div>
@@ -135,7 +135,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
+                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Enter Your Name"
@@ -147,7 +147,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
+                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="Enter Your Email"
@@ -159,7 +159,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
+                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
                   value={formData.number}
                   onChange={(e) => setFormData({ ...formData, number: e.target.value })}
                   placeholder="Enter Your Number"
@@ -171,7 +171,7 @@ const Contact = () => {
                 </label>
                 <textarea
                   rows="5"
-                  className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
+                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Enter Your Message"
@@ -180,7 +180,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-gradient-to-r from-green-400 to-blue-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full disabled:opacity-50"
+                className="px-4 py-2 text-white transition-transform duration-300 transform rounded-full bg-gradient-to-r from-green-400 to-blue-500 hover:scale-105 disabled:opacity-50"
               >
                 {loading ? 'Sending...' : 'Send Message'}
               </button>
