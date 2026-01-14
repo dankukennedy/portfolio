@@ -60,7 +60,6 @@ const Hero = () => {
       });
       setFormData({ name: '', email: '', number: '', message: '', file: null }); // Reset form
       togglePopup(); // Close the popup
-      
     } catch (error) {
       toast.error(error.response?.data?.message||'Failed to submit form. Try again later.', {
         position: 'top-right',
@@ -96,7 +95,6 @@ const Hero = () => {
         <span className="m-2 font-serif text-2xl ">
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰IT Professional🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Software Engineer🔰</span><span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Full-Stack Architect🔰</span></span>
         </p>
-        
       </h1>
       <p className="mt-4 text-lg text-gray-100">
         <marquee className="font-serif text-2xl text-black">I specialize in building modern and responsive web applications.</marquee>
@@ -109,7 +107,7 @@ const Hero = () => {
         </a>
         <a href="https://gravatar.com/happilywise8526b101c9" target="_blank" rel="noopener noreferrer">
           <button className="px-4 py-2 text-xl text-white transition-transform duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-blue-500 hover:scale-105 hover:border-4">
-            Gravatar 
+            Gravatar
           </button>
         </a>
         <a href={cv} download className="inline-block">
