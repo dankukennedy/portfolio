@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss(),],
-  base: '/portfolio/', // Adjust based on your deployment
+  base: '/portfolio', // Adjust based on your deployment
   build: {
     rollupOptions: {
       input: './index.html', // Explicitly set the entry point
