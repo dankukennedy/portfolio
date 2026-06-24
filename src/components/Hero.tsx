@@ -95,28 +95,47 @@ const Hero: React.FC = () => {
         className="object-cover w-48 h-48 mx-auto mb-8 transition-transform duration-300 transform border-8 rounded-full hover:scale-105 hover:border-green-600"
       />
       <h1 className="text-4xl font-bold">
-        I'm{' '}
+        I'm{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-950">
           Danku Kennedy Edem
-        </span>{' '}
+        </span>{" "}
         <div className="m-4">
           <span className="m-2 font-serif text-2xl">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰IT Professional🔰</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Software Engineer🔰</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">🔰Full-Stack Architect🔰</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">
+              🔰IT Professional🔰
+            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">
+              🔰Software Engineer🔰
+            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-950 from-black text-nowrap">
+              🔰Full-Stack Architect🔰
+            </span>
           </span>
         </div>
       </h1>
       <div className="mt-4 text-lg text-gray-100">
-        <marquee className="font-serif text-2xl text-black">I specialize in building modern and responsive web applications.</marquee>
+        {/* Cast the opening tag as any */}
+        {React.createElement(
+          "marquee",
+          { className: "font-serif text-2xl text-black" },
+          "I specialize in building modern and responsive web applications.",
+        )}
       </div>
       <div className="mt-8 space-x-4">
-        <a href="https://www.linkedin.com/in/kennedy-edem-danku-839108137" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.linkedin.com/in/kennedy-edem-danku-839108137"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <button className="px-4 py-2 text-xl text-white transition-transform duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-blue-500 hover:scale-105 hover:border-4">
             LinkedIn Profile
           </button>
         </a>
-        <a href="https://gravatar.com/happilywise8526b101c9" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://gravatar.com/happilywise8526b101c9"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <button className="px-4 py-2 text-xl text-white transition-transform duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-blue-500 hover:scale-105 hover:border-4">
             Gravatar
           </button>
@@ -144,7 +163,9 @@ const Hero: React.FC = () => {
               >
                 <span className="px-2 text-2xl bg-red-700 rounded-md">X</span>
               </button>
-              <h2 className="mb-4 text-2xl font-bold text-center text-white">Fill Your Requirement Form </h2>
+              <h2 className="mb-4 text-2xl font-bold text-center text-white">
+                Fill Your Requirement Form{" "}
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="popup-name" className="block mb-2 text-left">
@@ -163,7 +184,10 @@ const Hero: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="popup-email" className="block mb-2 text-left text-white">
+                  <label
+                    htmlFor="popup-email"
+                    className="block mb-2 text-left text-white"
+                  >
                     Your Email
                   </label>
                   <input
@@ -179,7 +203,10 @@ const Hero: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="popup-number" className="block mb-2 text-left text-white">
+                  <label
+                    htmlFor="popup-number"
+                    className="block mb-2 text-left text-white"
+                  >
                     Your Contact Number
                   </label>
                   <input
@@ -195,7 +222,10 @@ const Hero: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="popup-message" className="block mb-2 text-left text-white">
+                  <label
+                    htmlFor="popup-message"
+                    className="block mb-2 text-left text-white"
+                  >
                     Your Message or Requirements
                   </label>
                   <textarea
@@ -212,7 +242,10 @@ const Hero: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="popup-file" className="block mb-2 text-left text-white">
+                  <label
+                    htmlFor="popup-file"
+                    className="block mb-2 text-left text-white"
+                  >
                     Upload Requirement Documents (PDF or DOC)
                   </label>
                   <input
@@ -228,7 +261,7 @@ const Hero: React.FC = () => {
                   disabled={loading}
                   className="w-full px-4 py-2 mt-4 text-white rounded bg-gradient-to-r from-green-400 to-blue-600 hover:bg-green-600 disabled:opacity-50"
                 >
-                  {loading ? 'Submitting...' : 'Submit'}
+                  {loading ? "Submitting..." : "Submit"}
                 </button>
               </form>
             </div>
