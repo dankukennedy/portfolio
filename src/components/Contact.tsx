@@ -3,18 +3,27 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaEnvelope, FaPhone, FaMapMarkedAlt, FaMobile, FaWhatsapp } from 'react-icons/fa';
 
-const Contact = () => {
-  const [errors, setErrors] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
+// Define the interface for form data state
+interface FormDataState {
+  name: string;
+  email: string;
+  number: string;
+  message: string;
+}
+
+const Contact: React.FC = () => {
+  // Explicitly type arrays and objects
+  const [errors, setErrors] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [formData, setFormData] = useState<FormDataState>({
     name: '',
     email: '',
     number: '',
     message: '',
   });
 
-  const validateForm = () => {
-    const validationErrors = [];
+  const validateForm = (): boolean => {
+    const validationErrors: string[] = [];
     if (!formData.name || !formData.email || !formData.number || !formData.message) {
       validationErrors.push('Please fill in all required fields');
     }
@@ -28,7 +37,8 @@ const Contact = () => {
     return validationErrors.length === 0;
   };
 
-  const handleSubmit = async (event) => {
+  // Type the form submit event
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     setErrors([]);
 
@@ -68,19 +78,18 @@ const Contact = () => {
       }
 
       const result = await response.json();
-      if(result){
+      if (result) {
         toast.success('Message sent successfully!', {
           position: 'top-right',
           autoClose: 3000,
         });
         setFormData({ name: '', email: '', number: '', message: '' });
       }
-     
-    } catch (error) {
-      toast.error(
-        error.response?.data?.message || 'An unexpected error occurred from the server.',
-        { position: 'top-right', autoClose: 3000 }
-      );
+
+    } catch (error: any) {
+      // Axios error fallback fallback check if using fetch
+      const errorMessage = error?.response?.data?.message || error?.message || 'An unexpected error occurred from the server.';
+      toast.error(errorMessage, { position: 'top-right', autoClose: 3000 });
     } finally {
       setLoading(false);
     }
@@ -135,6 +144,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  id="name"
                   className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -147,6 +157,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  id="email"
                   className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -159,6 +170,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  id="number"
                   className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
                   value={formData.number}
                   onChange={(e) => setFormData({ ...formData, number: e.target.value })}
@@ -170,7 +182,8 @@ const Contact = () => {
                   Your Message
                 </label>
                 <textarea
-                  rows="5"
+                  id="message"
+                  rows={5}
                   className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
