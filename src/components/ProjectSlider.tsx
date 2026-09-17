@@ -11,6 +11,7 @@ import Commerce from "../assets/projects/ecommerce.jpeg";
 import Transcript from "../assets/projects/transcript.jpeg";
 import Regal from "../assets/projects/regal.png";
 import Employee from "../assets/projects/employee.jpg";
+import Data from "../assets/projects/data.png";
 
 interface ProjectItem {
   id: number;
@@ -62,20 +63,27 @@ const systems: ProjectItem[] = [
   },
   {
     id: 2,
+    name: "Universal Data Analyzer",
+    technologies: "Python, Streamlit,",
+    image: Data,
+    github: "https://universaldatamineranalyzer.streamlit.app/",
+  },
+  {
+    id: 3,
     name: "Transcript Management System",
     technologies: "HTML, PHP, MySQL, Bootstrap",
     image: Transcript,
     github: "https://github.com/dankukennedy/transway",
   },
   {
-    id: 3,
+    id: 4,
     name: "CIC Management System",
     technologies: "HTML, PHP, MySQL, JavaScript",
     image: CIC,
     github: "https://github.com/dankukennedy/CIC-Managemnt-System",
   },
   {
-    id: 4,
+    id: 5,
     name: "E-commerce Platform",
     technologies: "HTML, PHP, MySQL, AJAX",
     image: Commerce,
