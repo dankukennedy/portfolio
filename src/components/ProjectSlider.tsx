@@ -64,7 +64,7 @@ const systems: ProjectItem[] = [
   {
     id: 2,
     name: "Universal Data Analyzer",
-    technologies: "Python, Streamlit,",
+    technologies: "Python, Streamlit, AI",
     image: Data,
     github: "https://universaldatamineranalyzer.streamlit.app/",
   },
