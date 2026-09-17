@@ -26,7 +26,6 @@ export default function ThemeToggle({
       Math.max(y, window.innerHeight - y),
     );
 
-    // @ts-expect-error — View Transitions typing
     const transition = document.startViewTransition(() => {
       toggleTheme();
     });
