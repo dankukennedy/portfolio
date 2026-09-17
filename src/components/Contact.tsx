@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
-import { FaEnvelope, FaPhone, FaMapMarkedAlt, FaMobile, FaWhatsapp } from 'react-icons/fa';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMobile,
+  FaWhatsapp,
+  FaMapMarkedAlt,
+} from "react-icons/fa";
+import { fadeUp, stagger } from "../lib/motion";
+import { useTheme } from "../context/ThemeContext";
 
-// Define the interface for form data state
 interface FormDataState {
   name: string;
   email: string;
@@ -11,198 +19,242 @@ interface FormDataState {
   message: string;
 }
 
-const Contact: React.FC = () => {
-  // Explicitly type arrays and objects
-  const [errors, setErrors] = useState<string[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+const contactItems = [
+  {
+    icon: FaEnvelope,
+    label: "Email",
+    value: "dankukennedy@gmail.com",
+    href: "mailto:dankukennedy@gmail.com",
+  },
+  { icon: FaPhone, label: "Phone", value: "+233 24 783 6603" },
+  { icon: FaMobile, label: "Alt", value: "+233 20 376 0941" },
+  {
+    icon: FaWhatsapp,
+    label: "WhatsApp",
+    value: "Chat on WhatsApp",
+    href: "https://wa.me/message/EXF33XUPKEM3E1",
+  },
+  {
+    icon: FaMapMarkedAlt,
+    label: "Location",
+    value: "Amrahia, Accra — Ghana",
+  },
+];
+
+export default function Contact() {
+  const { theme } = useTheme();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<FormDataState>({
-    name: '',
-    email: '',
-    number: '',
-    message: '',
+    name: "",
+    email: "",
+    number: "",
+    message: "",
   });
 
-  const validateForm = (): boolean => {
-    const validationErrors: string[] = [];
-    if (!formData.name || !formData.email || !formData.number || !formData.message) {
-      validationErrors.push('Please fill in all required fields');
-    }
-
-    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    if (!emailRegex.test(formData.email)) {
-      validationErrors.push('Please enter a valid email address.');
-    }
-
-    setErrors(validationErrors);
-    return validationErrors.length === 0;
+  const validate = () => {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.number ||
+      !formData.message
+    )
+      return "Please fill in all required fields.";
+    if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email))
+      return "Please enter a valid email address.";
+    return null;
   };
 
-  // Type the form submit event
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
-    event.preventDefault();
-    setErrors([]);
-
-    if (!validateForm()) {
-      toast.error('Please check your input', {
-        position: 'top-right',
-        autoClose: 3000,
-        hideProgressBar: false,
-        pauseOnHover: true,
-        draggable: true,
-        closeOnClick: true,
-      });
-      return;
-    }
-
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const err = validate();
+    if (err) return toast.error(err);
     setLoading(true);
-
     try {
-      const url = 'https://portfolioapi-17m9.onrender.com/api/contact';
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const res = await fetch(
+        "https://portfolioapi-17m9.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        toast.error(`HTTP error! Status: ${response.status}`, {
-          position: 'top-right',
-          autoClose: 3000,
-          hideProgressBar: false,
-          pauseOnHover: true,
-          draggable: true,
-          closeOnClick: true,
-        });
-      }
-
-      const result = await response.json();
-      if (result) {
-        toast.success('Message sent successfully!', {
-          position: 'top-right',
-          autoClose: 3000,
-        });
-        setFormData({ name: '', email: '', number: '', message: '' });
-      }
-
-    } catch (error: any) {
-      // Axios error fallback fallback check if using fetch
-      const errorMessage = error?.response?.data?.message || error?.message || 'An unexpected error occurred from the server.';
-      toast.error(errorMessage, { position: 'top-right', autoClose: 3000 });
+      );
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.message || "Failed to send.");
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", number: "", message: "" });
+    } catch (e: any) {
+      toast.error(e?.message || "Something went wrong.");
     } finally {
       setLoading(false);
     }
   };
 
+  const inputCls =
+    "w-full px-4 py-3.5 text-sm rounded-xl bg-[var(--color-fg)]/[0.03] border border-[var(--color-border)] text-[var(--color-fg)] placeholder-[var(--color-fg-muted)] focus:outline-none focus:border-emerald-500/60 focus:bg-[var(--color-fg)]/[0.05] transition-all";
+
   return (
-    <div className="py-20 text-white bg-gradient-to-r from-red-400 to-red-600" id="contact">
-      <ToastContainer />
-      <div className="container px-8 mx-auto md:px-16 lg:px-24">
-        <h2 className="mb-12 text-4xl font-bold text-center">Contact Me</h2>
-        <div className="flex flex-col items-center md:flex-row md:space-x-12">
-          <div className="flex-1">
-            <h3 className="mb-4 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-500">
-              Let's Talk
-            </h3>
-            <p>I'm open to discussing web development projects or partnership opportunities</p>
-            <div className="mt-8 mb-4">
-              <FaEnvelope className="inline-block mr-2 text-green-600" />
-              <a href="mailto:dankukennedy@gmail.com" className="hover:underline">
-                dankukennedy@gmail.com
-              </a>
-            </div>
-            <div className="mb-4">
-              <FaPhone className="inline-block mr-2 text-green-600" />
-              <span>+233 247836603</span>
-            </div>
-            <div className="mb-4">
-              <FaMobile className="inline-block mr-2 text-green-600" />
-              <span>+233 203760941</span>
-            </div>
-            <div className="mb-4">
-              <FaWhatsapp className="inline-block mr-2 text-green-600" />
-              <a
-                href="https://wa.me/message/EXF33XUPKEM3E1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
+    <section
+      id="contact"
+      className="relative py-28 px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg-soft)]"
+    >
+      <ToastContainer theme={theme} position="top-right" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-emerald-500/5 blur-[160px] rounded-full pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-center max-w-2xl mx-auto mb-20"
+        >
+          <motion.span
+            variants={fadeUp}
+            className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-emerald-500 mb-4"
+          >
+            Contact
+          </motion.span>
+          <motion.h2
+            variants={fadeUp}
+            custom={1}
+            className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
+          >
+            Let's build something
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            custom={2}
+            className="text-[var(--color-fg-soft)] text-lg"
+          >
+            Have a project, an idea, or just want to say hi? My inbox is always
+            open.
+          </motion.p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-5 gap-6">
+          {/* Contact info */}
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="lg:col-span-2 space-y-3"
+          >
+            {contactItems.map(({ icon: Icon, label, value, href }) => (
+              <motion.div
+                key={label}
+                variants={fadeUp}
+                className="flex items-center gap-4 p-4 rounded-2xl glass hover:border-emerald-500/30 transition-colors"
               >
-                WhatsApp Me
-              </a>
-            </div>
-            <div className="mb-4">
-              <FaMapMarkedAlt className="inline-block mr-2 text-green-600" />
-              <span>F224 Barbet ST, GD-269-4680, Amrahia, Accra Ghana</span>
-            </div>
-          </div>
-          <div className="flex-1 w-full">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Enter Your Name"
-                />
+                <div className="grid place-items-center w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-[var(--color-border)] text-emerald-500 shrink-0">
+                  <Icon size={16} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-fg-muted)] font-semibold">
+                    {label}
+                  </p>
+                  {href ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm text-[var(--color-fg)] hover:text-emerald-500 transition-colors truncate block"
+                    >
+                      {value}
+                    </a>
+                  ) : (
+                    <p className="text-sm text-[var(--color-fg)] truncate">
+                      {value}
+                    </p>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Form */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="lg:col-span-3 rounded-2xl glass p-7 md:p-9"
+          >
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    placeholder="John Doe"
+                    className={inputCls}
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    placeholder="john@example.com"
+                    className={inputCls}
+                  />
+                </div>
               </div>
+
               <div>
-                <label htmlFor="email" className="block mb-2">
-                  Your Email
+                <label className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
+                  Phone
                 </label>
                 <input
-                  type="text"
-                  id="email"
-                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="Enter Your Email"
-                />
-              </div>
-              <div>
-                <label htmlFor="number" className="block mb-2">
-                  Your Contact
-                </label>
-                <input
-                  type="text"
-                  id="number"
-                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
+                  type="tel"
                   value={formData.number}
-                  onChange={(e) => setFormData({ ...formData, number: e.target.value })}
-                  placeholder="Enter Your Number"
+                  onChange={(e) =>
+                    setFormData({ ...formData, number: e.target.value })
+                  }
+                  placeholder="+233 ..."
+                  className={inputCls}
                 />
               </div>
+
               <div>
-                <label htmlFor="message" className="block mb-2">
-                  Your Message
+                <label className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
+                  Message
                 </label>
                 <textarea
-                  id="message"
                   rows={5}
-                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-green-400"
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Enter Your Message"
-                ></textarea>
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  placeholder="Tell me about your project…"
+                  className={`${inputCls} resize-none`}
+                />
               </div>
-              <button
+
+              <motion.button
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
                 type="submit"
                 disabled={loading}
-                className="px-4 py-2 text-white transition-transform duration-300 transform rounded-full bg-gradient-to-r from-green-400 to-blue-500 hover:scale-105 disabled:opacity-50"
+                className="w-full py-3.5 px-4 text-sm font-semibold rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black hover:from-emerald-400 hover:to-cyan-400 shadow-lg shadow-emerald-900/20 transition-all disabled:opacity-50"
               >
-                {loading ? 'Sending...' : 'Send Message'}
-              </button>
+                {loading ? "Sending…" : "Send Message →"}
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Contact;
+}

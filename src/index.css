@@ -1,1 +1,113 @@
 @import "tailwindcss";
+
+/* ---------- Class-based dark mode ---------- */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- Design tokens ---------- */
+@theme {
+    --color-brand-50: #ecfdf5;
+    --color-brand-100: #d1fae5;
+    --color-brand-400: #34d399;
+    --color-brand-500: #10b981;
+    --color-brand-600: #059669;
+
+    /* Light theme defaults */
+    --color-bg: #ffffff;
+    --color-bg-soft: #f8fafc;
+    --color-surface: #ffffff;
+    --color-border: #e5e7eb;
+    --color-fg: #0a0e14;
+    --color-fg-soft: #4b5563;
+    --color-fg-muted: #9ca3af;
+
+    --font-display: "Space Grotesk", "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Dark theme overrides */
+.dark {
+    --color-bg: #05070a;
+    --color-bg-soft: #0a0e14;
+    --color-surface: #11161f;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-fg: #e5e7eb;
+    --color-fg-soft: #9ca3af;
+    --color-fg-muted: #6b7280;
+}
+
+/* ---------- Base ---------- */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--color-bg);
+        color: var(--color-fg);
+        font-family: "Inter", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    ::selection {
+        background: rgba(16, 185, 129, 0.35);
+        color: #fff;
+    }
+}
+
+/* ---------- Utilities ---------- */
+@layer utilities {
+    .glass {
+        background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--color-border);
+        transition: background-color 0.4s ease, border-color 0.4s ease;
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #6366f1 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .grid-bg {
+        background-image:
+            linear-gradient(color-mix(in srgb, var(--color-fg) 5%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in srgb, var(--color-fg) 5%, transparent) 1px, transparent 1px);
+        background-size: 48px 48px;
+    }
+
+    .glow-ring {
+        box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.25),
+            0 0 40px -8px rgba(52, 211, 153, 0.4);
+    }
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#10b981, #0e7490);
+    border-radius: 8px;
+}
+
+/* ---------- View transitions (theme radial reveal) ---------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+/* ---------- Toastify theme tweaks ---------- */
+.Toastify__toast {
+    border-radius: 12px !important;
+    font-family: "Inter", sans-serif !important;
+}

@@ -1,80 +1,126 @@
-import React from "react";
+import { motion } from "framer-motion";
+import {
+  HiOutlineCode,
+  HiOutlineColorSwatch,
+  HiOutlineServer,
+  HiOutlineCube,
+  HiOutlineLightningBolt,
+  HiOutlineChip,
+} from "react-icons/hi";
+import { fadeUp, stagger } from "../lib/motion";
 
-// Define the interface for a service item
-interface ServiceItem {
-  id: number;
-  title: string;
-  description: string;
-}
-
-const services: ServiceItem[] = [
+const services = [
   {
-    id: 1,
+    icon: HiOutlineColorSwatch,
     title: "Web Design",
-    description: "Creating visually and user-friendly web designs.",
+    desc: "Visually striking, brand-aligned interfaces that convert.",
   },
   {
-    id: 2,
-    title: "Frontend Development",
-    description: "Building responsive and interactive user interfaces.",
+    icon: HiOutlineCode,
+    title: "Frontend Engineering",
+    desc: "Responsive, accessible UIs built with modern frameworks.",
   },
   {
-    id: 3,
+    icon: HiOutlineServer,
     title: "Backend Development",
-    description: "Developing robust server-side logic and databases.",
+    desc: "Robust APIs, secure auth, and efficient data layers.",
   },
   {
-    id: 4,
-    title: "Full-Stack Development",
-    description: "Combining both frontend and backend development skills.",
+    icon: HiOutlineCube,
+    title: "Full-Stack Solutions",
+    desc: "End-to-end products from design system to deployment.",
   },
   {
-    id: 5,
-    title: "Mini Projects Development",
-    description: "Developing mini projects for students and small businesses.",
+    icon: HiOutlineLightningBolt,
+    title: "Rapid Prototyping",
+    desc: "From idea to working MVP in days, not weeks.",
   },
   {
-    id: 6,
+    icon: HiOutlineChip,
     title: "IT Consultancy",
-    description: "Providing consultancy services for businesses.",
+    desc: "Architecture reviews, strategy, and technical guidance.",
   },
 ];
 
-const Service: React.FC = () => {
+export default function Service() {
   return (
-    <div
-      className="py-20 text-white bg-gradient-to-r from-red-400 to-red-600"
+    <section
       id="service"
+      className="relative py-28 px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg-soft)]"
     >
-      <div className="container px-8 mx-auto md:px-16 lg:px-24">
-        <h2 className="mb-12 text-4xl font-bold text-center">My Services</h2>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="px-6 pb-6 transition-transform duration-300 transform bg-gray-800 border-8 border-transparent rounded-lg hover:shadow-lg hover:scale-105 hover:border-green-600"
-            >
-              <div className="text-2xl font-bold text-right text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-400">
-                <b className="inline-block px-3 py-0 text-white rounded-b-sm bg-gradient-to-r from-blue-300 to-blue-600">
-                  {service.id}
-                </b>
-              </div>
-              <h3 className="mt-2 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-                {service.title}
-              </h3>
-              <p className="mt-2 text-gray-300">{service.description}</p>
-              <a
-                href="#"
-                className="inline-block mt-4 text-green-400 hover:text-blue-500"
-              >
-                Read More
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-emerald-500/5 blur-[160px] rounded-full pointer-events-none" />
 
-export default Service;
+      <div className="relative max-w-7xl mx-auto">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-center max-w-2xl mx-auto mb-20"
+        >
+          <motion.span
+            variants={fadeUp}
+            className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-emerald-500 mb-4"
+          >
+            Services
+          </motion.span>
+          <motion.h2
+            variants={fadeUp}
+            custom={1}
+            className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
+          >
+            What I do best
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            custom={2}
+            className="text-[var(--color-fg-soft)] text-lg"
+          >
+            Full-spectrum engineering services — designed to take your product
+            from idea to impact.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
+          {services.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.title}
+                variants={fadeUp}
+                custom={i}
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                className="group relative rounded-2xl glass p-7 hover:border-emerald-500/40 transition-colors overflow-hidden"
+              >
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-emerald-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="relative flex items-center justify-between mb-8">
+                  <div className="grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-[var(--color-border)] text-emerald-500">
+                    <Icon size={22} />
+                  </div>
+                  <span className="font-mono text-xs text-[var(--color-fg-muted)]">
+                    0{i + 1}
+                  </span>
+                </div>
+
+                <h3 className="relative font-display text-xl font-semibold text-[var(--color-fg)] mb-2 group-hover:text-emerald-500 transition-colors">
+                  {s.title}
+                </h3>
+                <p className="relative text-sm text-[var(--color-fg-soft)] leading-relaxed">
+                  {s.desc}
+                </p>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
