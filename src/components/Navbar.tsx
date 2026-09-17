@@ -42,11 +42,11 @@ export default function Navbar() {
           }`}
         >
           <a href="#home" className="flex items-center gap-2 group">
-            <span className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 text-black font-bold font-display">
+            <span className="grid place-items-center w-9 h-9 rounded-xl bg-linear-to-br from-emerald-400 to-cyan-500 text-black font-bold font-display">
               D
             </span>
             <span className="font-display font-semibold tracking-tight text-[var(--color-fg)]">
-              danku<span className="text-emerald-500">.dev</span>
+              D . K<span className="text-emerald-500"> Edem</span>
             </span>
           </a>
 
@@ -58,7 +58,7 @@ export default function Navbar() {
                   className="relative px-4 py-2 text-sm text-[var(--color-fg-soft)] hover:text-[var(--color-fg)] transition-colors rounded-lg group"
                 >
                   {l.label}
-                  <span className="absolute left-1/2 -translate-x-1/2 bottom-1 h-px w-0 bg-gradient-to-r from-emerald-400 to-cyan-400 group-hover:w-6 transition-all duration-300" />
+                  <span className="absolute left-1/2 -translate-x-1/2 bottom-1 h-px w-0 bg-linear-to-r from-emerald-400 to-cyan-400 group-hover:w-6 transition-all duration-300" />
                 </a>
               </li>
             ))}

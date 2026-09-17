@@ -3,12 +3,16 @@ import { fadeUp, stagger, scaleIn } from "../lib/motion";
 import AboutImage from "../assets/pro.jpeg";
 
 const skills = [
-  { name: "HTML · CSS · JavaScript", level: 92 },
-  { name: "PHP & MySQL", level: 85 },
-  { name: "Node.js & Express", level: 85 },
-  { name: "C++ & Python", level: 75 },
+  {
+    name: "C++ · HTML · CSS · JavaScript · Python · PHP · TypeScript ",
+    level: 92,
+  },
+  { name: " MySQL· PostgreSQL· MongoDB· Redis · MariaDB", level: 87 },
+  { name: "Node.js· Express · NestJS · FastAPI", level: 85 },
+  { name: "Docker · GitHub · GitLab · CI/CD", level: 75 },
   { name: "React · Vite · TypeScript", level: 78 },
-  { name: "MERN Stack", level: 70 },
+  { name: "MERN · PERN · Stack ", level: 70 },
+  { name: "Laravel · WordPress ", level: 60 },
 ];
 
 const stats = [
@@ -67,20 +71,20 @@ export default function About() {
             className="lg:col-span-5 flex justify-center"
           >
             <div className="relative group">
-              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-emerald-500/30 via-cyan-500/20 to-indigo-500/30 blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute -inset-2 rounded-3xl bg-linear-to-br from-emerald-500/30 via-cyan-500/20 to-indigo-500/30 blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="relative w-72 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
                 <img
                   src={AboutImage}
                   alt="Danku Kennedy Edem"
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                   <span className="px-3 py-1 rounded-full text-[10px] font-medium glass text-emerald-300">
                     ● Accra, GH
                   </span>
                   <span className="px-3 py-1 rounded-full text-[10px] font-medium glass text-gray-200">
-                    Since 2019
+                    Since 2016
                   </span>
                 </div>
               </div>
@@ -140,7 +144,7 @@ export default function About() {
                       whileInView={{ width: `${s.level}%` }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                      className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-cyan-500"
+                      className="h-full rounded-full bg-linear-to-r from-emerald-400 to-cyan-500"
                     />
                   </div>
                 </motion.div>
@@ -164,7 +168,7 @@ export default function About() {
               whileHover={{ y: -4 }}
               className="rounded-2xl glass p-6 text-center transition-colors hover:border-emerald-500/30"
             >
-              <div className="font-display text-3xl font-bold text-gradient mb-1">
+              <div className="font-display text-3xl font-bold text-linear mb-1">
                 {s.value}
               </div>
               <p className="text-xs uppercase tracking-widest text-[var(--color-fg-muted)]">
