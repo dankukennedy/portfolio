@@ -23,6 +23,8 @@
 
     --font-display: "Space Grotesk", "Inter", sans-serif;
     --font-mono: "JetBrains Mono", monospace;
+    
+    --breakpoint-xs: 420px;
 }
 
 /* Dark theme overrides */

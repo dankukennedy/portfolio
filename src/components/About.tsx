@@ -26,9 +26,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-28 px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg)]"
+      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg)]"
     >
-      <div className="absolute top-1/3 -left-20 w-[500px] h-[500px] bg-cyan-500/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 -left-20 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-cyan-500/5 blur-[120px] sm:blur-[150px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div
@@ -36,7 +36,7 @@ export default function About() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-2xl mx-auto mb-20"
+          className="text-center max-w-2xl mx-auto mb-12 sm:mb-20"
         >
           <motion.span
             variants={fadeUp}
@@ -47,21 +47,21 @@ export default function About() {
           <motion.h2
             variants={fadeUp}
             custom={1}
-            className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
           >
             Engineering with purpose
           </motion.h2>
           <motion.p
             variants={fadeUp}
             custom={2}
-            className="text-[var(--color-fg-soft)] text-lg"
+            className="text-[var(--color-fg-soft)] text-base sm:text-lg px-2"
           >
             A blend of craft, curiosity, and disciplined execution — delivered
             from concept to production.
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-14 items-center">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Portrait */}
           <motion.div
             variants={scaleIn}
@@ -72,18 +72,18 @@ export default function About() {
           >
             <div className="relative group">
               <div className="absolute -inset-2 rounded-3xl bg-linear-to-br from-emerald-500/30 via-cyan-500/20 to-indigo-500/30 blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative w-72 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
+              <div className="relative w-64 h-72 xs:w-72 xs:h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
                 <img
                   src={AboutImage}
                   alt="Danku Kennedy Edem"
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full text-[10px] font-medium glass text-emerald-300">
+                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between gap-2">
+                  <span className="px-2 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-medium glass text-emerald-300">
                     ● Accra, GH
                   </span>
-                  <span className="px-3 py-1 rounded-full text-[10px] font-medium glass text-gray-200">
+                  <span className="px-2 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-medium glass text-gray-200">
                     Since 2016
                   </span>
                 </div>
@@ -98,7 +98,7 @@ export default function About() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="text-[var(--color-fg-soft)] text-lg leading-relaxed mb-10"
+              className="text-[var(--color-fg-soft)] text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 text-center lg:text-left"
             >
               I design and engineer modern, scalable, and accessible web
               applications. My work spans frontend architecture, backend APIs,
@@ -111,7 +111,7 @@ export default function About() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-sm uppercase tracking-widest text-[var(--color-fg-muted)] mb-6"
+              className="flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm uppercase tracking-widest text-[var(--color-fg-muted)] mb-5 sm:mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
               Core Proficiencies
@@ -122,7 +122,7 @@ export default function About() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-80px" }}
-              className="space-y-5 mb-14"
+              className="space-y-4 sm:space-y-5 mb-10 sm:mb-14"
             >
               {skills.map((s) => (
                 <motion.div
@@ -130,11 +130,11 @@ export default function About() {
                   variants={fadeUp}
                   className="space-y-2"
                 >
-                  <div className="flex justify-between text-sm">
+                  <div className="flex justify-between text-xs sm:text-sm gap-3">
                     <span className="text-[var(--color-fg-soft)]">
                       {s.name}
                     </span>
-                    <span className="text-emerald-500 font-mono">
+                    <span className="text-emerald-500 font-mono shrink-0">
                       {s.level}%
                     </span>
                   </div>
@@ -159,19 +159,19 @@ export default function About() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-12 sm:mt-20"
         >
           {stats.map((s) => (
             <motion.div
               key={s.label}
               variants={fadeUp}
               whileHover={{ y: -4 }}
-              className="rounded-2xl glass p-6 text-center transition-colors hover:border-emerald-500/30"
+              className="rounded-2xl glass p-4 sm:p-6 text-center transition-colors hover:border-emerald-500/30"
             >
-              <div className="font-display text-3xl font-bold text-linear mb-1">
+              <div className="font-display text-2xl sm:text-3xl font-bold text-linear mb-1">
                 {s.value}
               </div>
-              <p className="text-xs uppercase tracking-widest text-[var(--color-fg-muted)]">
+              <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[var(--color-fg-muted)]">
                 {s.label}
               </p>
             </motion.div>

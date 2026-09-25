@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
-import { HiArrowRight, HiOutlineCode } from "react-icons/hi";
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { HiArrowRight, HiArrowLeft, HiOutlineCode } from "react-icons/hi";
 import { fadeUp, stagger } from "../lib/motion";
-import ProjectSlider from "./ProjectSlider";
 
 import Flyer from "../assets/projects/flyer.jpeg";
 import Sim from "../assets/projects/Sim1.jpg";
@@ -91,6 +91,8 @@ const systems: ProjectItem[] = [
   },
 ];
 
+/* ------------------------------ Card ------------------------------ */
+
 function Card({ project, index }: { project: ProjectItem; index: number }) {
   const href = project.website ?? project.github;
   return (
@@ -108,34 +110,35 @@ function Card({ project, index }: { project: ProjectItem; index: number }) {
         <img
           src={project.image}
           alt={project.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
+          draggable={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
 
-        <div className="absolute top-4 right-4 grid place-items-center w-9 h-9 rounded-xl glass text-[var(--color-fg)] opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
-          <HiArrowRight />
+        <div className="absolute top-3 sm:top-4 right-3 sm:right-4 grid place-items-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl glass text-[var(--color-fg)] opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
+          <HiArrowRight className="text-sm sm:text-base" />
         </div>
 
         {project.website ? (
-          <span className="absolute top-4 left-4 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-emerald-500 text-black">
+          <span className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider rounded-full bg-emerald-500 text-black">
             Live
           </span>
         ) : (
-          <span className="absolute top-4 left-4 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full glass text-cyan-500">
+          <span className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider rounded-full glass text-cyan-500">
             Repo
           </span>
         )}
       </div>
 
-      <div className="p-6 flex-1 flex flex-col">
-        <h3 className="font-display text-lg font-semibold text-[var(--color-fg)] mb-3 group-hover:text-emerald-500 transition-colors">
+      <div className="p-4 sm:p-6 flex-1 flex flex-col">
+        <h3 className="font-display text-base sm:text-lg font-semibold text-[var(--color-fg)] mb-3 group-hover:text-emerald-500 transition-colors">
           {project.name}
         </h3>
         <div className="flex flex-wrap gap-1.5 mt-auto">
           {project.technologies.split(",").map((t) => (
             <span
               key={t}
-              className="px-2.5 py-1 text-[11px] font-medium rounded-full bg-[var(--color-fg)]/5 border border-[var(--color-border)] text-[var(--color-fg-soft)]"
+              className="px-2 sm:px-2.5 py-1 text-[10px] sm:text-[11px] font-medium rounded-full bg-[var(--color-fg)]/5 border border-[var(--color-border)] text-[var(--color-fg-soft)]"
             >
               {t.trim()}
             </span>
@@ -146,37 +149,199 @@ function Card({ project, index }: { project: ProjectItem; index: number }) {
   );
 }
 
+/* ------------------------- Section Header ------------------------- */
+
 function SectionHeader({
   dot,
   title,
   count,
+  current,
+  total,
+  onPrev,
+  onNext,
+  showArrows,
 }: {
   dot: string;
   title: string;
   count: number;
+  current?: number;
+  total?: number;
+  onPrev?: () => void;
+  onNext?: () => void;
+  showArrows?: boolean;
 }) {
   return (
-    <div className="flex items-end justify-between mb-8 gap-4">
-      <div className="flex items-center gap-3">
-        <span className={`w-2.5 h-2.5 rounded-full ${dot}`} />
-        <h3 className="font-display text-2xl md:text-3xl font-semibold text-[var(--color-fg)] tracking-tight">
+    <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6 sm:mb-8 gap-3 sm:gap-4">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <span className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full ${dot}`} />
+        <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-semibold text-[var(--color-fg)] tracking-tight">
           {title}
         </h3>
+        <span className="text-[10px] sm:text-xs font-mono text-[var(--color-fg-muted)] ml-1">
+          ({String(count).padStart(2, "0")})
+        </span>
       </div>
-      <span className="text-xs font-mono text-[var(--color-fg-muted)]">
-        {String(count).padStart(2, "0")} projects
-      </span>
+
+      <div className="flex items-center gap-3 self-end sm:self-auto">
+        {showArrows && (
+          <>
+            <span className="hidden sm:inline-block text-xs font-mono text-[var(--color-fg-muted)]">
+              {String((current ?? 0) + 1).padStart(2, "0")} /{" "}
+              {String(total ?? 0).padStart(2, "0")}
+            </span>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={onPrev}
+                aria-label="Previous projects"
+                className="grid place-items-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl glass text-[var(--color-fg)] hover:border-emerald-500/40 hover:text-emerald-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                <HiArrowLeft className="text-sm sm:text-base" />
+              </button>
+              <button
+                type="button"
+                onClick={onNext}
+                aria-label="Next projects"
+                className="grid place-items-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl glass text-[var(--color-fg)] hover:border-emerald-500/40 hover:text-emerald-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                <HiArrowRight className="text-sm sm:text-base" />
+              </button>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }
+
+/* --------------------------- Slider Hook -------------------------- */
+
+function useVisibleCount() {
+  const [visible, setVisible] = useState(1);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 640) setVisible(1);
+      else if (w < 1024) setVisible(2);
+      else setVisible(3);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return visible;
+}
+
+/* ------------------------ Project Slider -------------------------- */
+
+function ProjectSlider({
+  projects,
+  dot,
+  title,
+}: {
+  projects: ProjectItem[];
+  dot: string;
+  title: string;
+}) {
+  const visible = useVisibleCount();
+  const maxIndex = Math.max(0, projects.length - visible);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setIndex((i) => Math.min(i, maxIndex));
+  }, [maxIndex]);
+
+  const goPrev = () => setIndex((i) => Math.max(0, i - 1));
+  const goNext = () => setIndex((i) => Math.min(maxIndex, i + 1));
+
+  const dragX = useRef(0);
+  const onDragStart = (_: any, info: { offset: { x: number } }) => {
+    dragX.current = info.offset.x;
+  };
+  const onDragEnd = (_: any, info: { offset: { x: number } }) => {
+    const threshold = 60;
+    if (info.offset.x < -threshold) goNext();
+    else if (info.offset.x > threshold) goPrev();
+    dragX.current = 0;
+  };
+
+  const showArrows = projects.length > 3;
+  const cardWidthPct = 100 / visible;
+
+  return (
+    <>
+      <SectionHeader
+        dot={dot}
+        title={title}
+        count={projects.length}
+        current={index}
+        total={maxIndex + 1}
+        onPrev={goPrev}
+        onNext={goNext}
+        showArrows={showArrows}
+      />
+
+      <div className="relative">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-12 bg-gradient-to-r from-[var(--color-bg)] to-transparent z-10 opacity-60" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-12 bg-gradient-to-l from-[var(--color-bg)] to-transparent z-10 opacity-60" />
+
+        <div className="overflow-hidden">
+          <motion.div
+            drag={showArrows ? "x" : false}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.15}
+            onDragEnd={onDragEnd}
+            animate={{ x: `-${index * cardWidthPct}%` }}
+            transition={{ type: "spring", stiffness: 260, damping: 30 }}
+            className="flex gap-4 sm:gap-6 cursor-grab active:cursor-grabbing"
+          >
+            {projects.map((p, i) => (
+              <div
+                key={`${p.id}-${i}`}
+                style={{
+                  flex: `0 0 calc(${cardWidthPct}% - ${((visible - 1) * (visible > 1 ? 24 : 16)) / visible}px)`,
+                }}
+                className="min-w-0"
+              >
+                <Card project={p} index={i} />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {showArrows && (
+          <div className="flex items-center justify-center gap-2 mt-6 sm:mt-8">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === index
+                    ? "w-6 sm:w-8 bg-emerald-500"
+                    : "w-1.5 bg-[var(--color-fg)]/20 hover:bg-[var(--color-fg)]/40"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
+
+/* ----------------------------- Section ---------------------------- */
 
 export default function Project() {
   return (
     <section
       id="project"
-      className="relative py-28 px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg)]"
+      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg)]"
     >
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-500/5 blur-[180px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-emerald-500/5 blur-[120px] sm:blur-[180px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div
@@ -184,7 +349,7 @@ export default function Project() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-20"
+          className="text-center max-w-2xl mx-auto mb-12 sm:mb-20"
         >
           <motion.span
             variants={fadeUp}
@@ -195,72 +360,44 @@ export default function Project() {
           <motion.h2
             variants={fadeUp}
             custom={1}
-            className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
           >
             Selected work
           </motion.h2>
           <motion.p
             variants={fadeUp}
             custom={2}
-            className="text-[var(--color-fg-soft)] text-lg"
+            className="text-[var(--color-fg-soft)] text-base sm:text-lg px-2"
           >
             A curated set of client websites and robust database-driven systems.
           </motion.p>
         </motion.div>
 
-        {/* Websites slider */}
-        <div className="mb-20">
+        <div className="mb-16 sm:mb-24">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <SectionHeader
+            <ProjectSlider
+              projects={websites}
               dot="bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.8)]"
               title="Websites"
-              count={websites.length}
             />
-          </motion.div>
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            <ProjectSlider perView={3}>
-              {websites.map((p, i) => (
-                <Card key={p.id} project={p} index={i} />
-              ))}
-            </ProjectSlider>
           </motion.div>
         </div>
 
-        {/* Systems slider */}
         <div>
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <SectionHeader
+            <ProjectSlider
+              projects={systems}
               dot="bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.8)]"
               title="Systems & Applications"
-              count={systems.length}
             />
-          </motion.div>
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            <ProjectSlider perView={3}>
-              {systems.map((p, i) => (
-                <Card key={p.id} project={p} index={i} />
-              ))}
-            </ProjectSlider>
           </motion.div>
         </div>
 
@@ -268,13 +405,13 @@ export default function Project() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-12 sm:mt-16 text-center"
         >
           <a
             href="https://github.com/dankukennedy"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold rounded-xl glass text-[var(--color-fg)] hover:border-emerald-500/40 transition-colors"
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold rounded-xl glass text-[var(--color-fg)] hover:border-emerald-500/40 transition-colors"
           >
             <HiOutlineCode />
             See more on GitHub

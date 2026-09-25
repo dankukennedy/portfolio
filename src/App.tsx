@@ -8,9 +8,9 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-fg)]">
+    <div className="min-h-screen bg-(--color-bg) text-fg overflow-x-hidden">
       <Navbar />
-      <main>
+      <main className="pt-0">
         <Hero />
         <About />
         <Service />

@@ -90,15 +90,15 @@ export default function Contact() {
   };
 
   const inputCls =
-    "w-full px-4 py-3.5 text-sm rounded-xl bg-[var(--color-fg)]/[0.03] border border-[var(--color-border)] text-[var(--color-fg)] placeholder-[var(--color-fg-muted)] focus:outline-none focus:border-emerald-500/60 focus:bg-[var(--color-fg)]/[0.05] transition-all";
+    "w-full px-3.5 sm:px-4 py-3 sm:py-3.5 text-sm rounded-xl bg-[var(--color-fg)]/[0.03] border border-[var(--color-border)] text-[var(--color-fg)] placeholder-[var(--color-fg-muted)] focus:outline-none focus:border-emerald-500/60 focus:bg-[var(--color-fg)]/[0.05] transition-all";
 
   return (
     <section
       id="contact"
-      className="relative py-28 px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg-soft)]"
+      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg-soft)]"
     >
       <ToastContainer theme={theme} position="top-right" />
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-emerald-500/5 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-emerald-500/5 blur-[120px] sm:blur-[160px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div
@@ -106,7 +106,7 @@ export default function Contact() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-20"
+          className="text-center max-w-2xl mx-auto mb-12 sm:mb-20"
         >
           <motion.span
             variants={fadeUp}
@@ -117,21 +117,21 @@ export default function Contact() {
           <motion.h2
             variants={fadeUp}
             custom={1}
-            className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
           >
             Let's build something
           </motion.h2>
           <motion.p
             variants={fadeUp}
             custom={2}
-            className="text-[var(--color-fg-soft)] text-lg"
+            className="text-[var(--color-fg-soft)] text-base sm:text-lg px-2"
           >
             Have a project, an idea, or just want to say hi? My inbox is always
             open.
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-6">
+        <div className="grid lg:grid-cols-5 gap-5 sm:gap-6">
           {/* Contact info */}
           <motion.div
             variants={stagger}
@@ -144,13 +144,14 @@ export default function Contact() {
               <motion.div
                 key={label}
                 variants={fadeUp}
-                className="flex items-center gap-4 p-4 rounded-2xl glass hover:border-emerald-500/30 transition-colors"
+                className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-2xl glass hover:border-emerald-500/30 transition-colors"
               >
-                <div className="grid place-items-center w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-[var(--color-border)] text-emerald-500 shrink-0">
-                  <Icon size={16} />
+                <div className="grid place-items-center w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-[var(--color-border)] text-emerald-500 shrink-0">
+                  <Icon size={14} className="sm:hidden" />
+                  <Icon size={16} className="hidden sm:block" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-fg-muted)] font-semibold">
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-[var(--color-fg-muted)] font-semibold">
                     {label}
                   </p>
                   {href ? (
@@ -158,12 +159,12 @@ export default function Contact() {
                       href={href}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-sm text-[var(--color-fg)] hover:text-emerald-500 transition-colors truncate block"
+                      className="text-xs sm:text-sm text-[var(--color-fg)] hover:text-emerald-500 transition-colors truncate block"
                     >
                       {value}
                     </a>
                   ) : (
-                    <p className="text-sm text-[var(--color-fg)] truncate">
+                    <p className="text-xs sm:text-sm text-[var(--color-fg)] truncate">
                       {value}
                     </p>
                   )}
@@ -178,12 +179,12 @@ export default function Contact() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="lg:col-span-3 rounded-2xl glass p-7 md:p-9"
+            className="lg:col-span-3 rounded-2xl glass p-5 sm:p-7 md:p-9"
           >
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid sm:grid-cols-2 gap-5">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
+                  <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
                     Name
                   </label>
                   <input
@@ -197,7 +198,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
+                  <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
                     Email
                   </label>
                   <input
@@ -213,7 +214,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
+                <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
                   Phone
                 </label>
                 <input
@@ -228,11 +229,11 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
+                <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[var(--color-fg-soft)] mb-2">
                   Message
                 </label>
                 <textarea
-                  rows={5}
+                  rows={4}
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
@@ -247,7 +248,7 @@ export default function Contact() {
                 whileTap={{ scale: 0.99 }}
                 type="submit"
                 disabled={loading}
-                className="w-full py-3.5 px-4 text-sm font-semibold rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black hover:from-emerald-400 hover:to-cyan-400 shadow-lg shadow-emerald-900/20 transition-all disabled:opacity-50"
+                className="w-full py-3 sm:py-3.5 px-4 text-xs sm:text-sm font-semibold rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black hover:from-emerald-400 hover:to-cyan-400 shadow-lg shadow-emerald-900/20 transition-all disabled:opacity-50"
               >
                 {loading ? "Sending…" : "Send Message →"}
               </motion.button>

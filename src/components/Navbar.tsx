@@ -22,6 +22,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -30,22 +38,22 @@ export default function Navbar() {
       className="fixed top-0 inset-x-0 z-50"
     >
       <div
-        className={`mx-auto max-w-7xl px-6 transition-all duration-500 ${
-          scrolled ? "py-3" : "py-5"
+        className={`mx-auto max-w-7xl px-4 sm:px-6 transition-all duration-500 ${
+          scrolled ? "py-2.5 sm:py-3" : "py-4 sm:py-5"
         }`}
       >
         <nav
-          className={`flex items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500 ${
+          className={`flex items-center justify-between rounded-2xl px-3.5 sm:px-5 py-2.5 sm:py-3 transition-all duration-500 ${
             scrolled
               ? "glass shadow-xl shadow-black/5 dark:shadow-black/40"
               : "bg-transparent border border-transparent"
           }`}
         >
           <a href="#home" className="flex items-center gap-2 group">
-            <span className="grid place-items-center w-9 h-9 rounded-xl bg-linear-to-br from-emerald-400 to-cyan-500 text-black font-bold font-display">
+            <span className="grid place-items-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-linear-to-br from-emerald-400 to-cyan-500 text-black font-bold font-display text-sm sm:text-base">
               D
             </span>
-            <span className="font-display font-semibold tracking-tight text-[var(--color-fg)]">
+            <span className="font-display font-semibold tracking-tight text-[var(--color-fg)] text-sm sm:text-base">
               D . K<span className="text-emerald-500"> Edem</span>
             </span>
           </a>
@@ -78,9 +86,9 @@ export default function Navbar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen((o) => !o)}
-              className="md:hidden grid place-items-center w-10 h-10 rounded-xl glass text-[var(--color-fg)]"
+              className="md:hidden grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl glass text-[var(--color-fg)]"
             >
-              {open ? <HiX size={20} /> : <HiOutlineMenuAlt3 size={20} />}
+              {open ? <HiX size={18} /> : <HiOutlineMenuAlt3 size={18} />}
             </button>
           </div>
         </nav>
@@ -92,7 +100,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.25 }}
-              className="md:hidden mt-2 glass rounded-2xl p-4"
+              className="md:hidden mt-2 glass rounded-2xl p-3 sm:p-4 max-h-[calc(100vh-120px)] overflow-y-auto"
             >
               <ul className="flex flex-col">
                 {links.map((l) => (
@@ -100,7 +108,7 @@ export default function Navbar() {
                     <a
                       href={l.href}
                       onClick={() => setOpen(false)}
-                      className="block px-4 py-3 rounded-xl text-[var(--color-fg-soft)] hover:text-[var(--color-fg)] hover:bg-[var(--color-fg)]/5 transition"
+                      className="block px-4 py-3 rounded-xl text-sm text-[var(--color-fg-soft)] hover:text-[var(--color-fg)] hover:bg-[var(--color-fg)]/5 transition"
                     >
                       {l.label}
                     </a>
@@ -110,7 +118,7 @@ export default function Navbar() {
                   <a
                     href="#contact"
                     onClick={() => setOpen(false)}
-                    className="block text-center px-4 py-3 rounded-xl bg-emerald-500 text-black font-semibold"
+                    className="block text-center px-4 py-3 rounded-xl bg-emerald-500 text-black font-semibold text-sm"
                   >
                     Hire Me
                   </a>
