@@ -70,10 +70,7 @@ export default function Hero() {
             custom={2}
             className="text-fg-soft text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed"
           >
-            I'm{" "}
-            <span className="text-fg font-medium">
-              Danku Kennedy Edem
-            </span>{" "}
+            I'm <span className="text-fg font-medium">Danku Kennedy Edem</span>{" "}
             — a Software Engineer & Full-Stack Architect crafting fast,
             accessible, and beautiful digital products from Accra, Ghana 🇬🇭.
           </motion.p>
@@ -206,7 +203,15 @@ export default function Hero() {
                   </span>
                   {`, `}
                   <span className="text-emerald-600 dark:text-emerald-300">
+                    "Laravel"
+                  </span>
+                  {`, `}
+                  <span className="text-emerald-600 dark:text-emerald-300">
                     "Node"
+                  </span>
+                  {`, `}
+                  <span className="text-emerald-600 dark:text-emerald-300">
+                    "FastAPI"
                   </span>
                   {`,\n    `}
                   <span className="text-emerald-600 dark:text-emerald-300">
