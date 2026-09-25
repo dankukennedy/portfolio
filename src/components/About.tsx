@@ -26,7 +26,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-bg"
+      className="relative pt-14 sm:pt-20 lg:pt-28 pb-16 sm:pb-24 lg:pb-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-bg"
     >
       <div className="absolute top-1/3 -left-20 w-70 sm:w-125 h-70 sm:h-125 bg-cyan-500/5 blur-[120px] sm:blur-[150px] rounded-full pointer-events-none" />
 
@@ -131,9 +131,7 @@ export default function About() {
                   className="space-y-2"
                 >
                   <div className="flex justify-between text-xs sm:text-sm gap-3">
-                    <span className="text-fg-soft">
-                      {s.name}
-                    </span>
+                    <span className="text-fg-soft">{s.name}</span>
                     <span className="text-emerald-500 font-mono shrink-0">
                       {s.level}%
                     </span>

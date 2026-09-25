@@ -25,7 +25,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-28 sm:pt-32 pb-16 sm:pb-20 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-bg"
+      className="relative min-h-svh flex items-center pt-24 sm:pt-32 pb-20 sm:pb-24 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-bg"
     >
       <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
       <div className="absolute top-1/4 -left-20 w-150 h-150 bg-emerald-500/10 blur-[120px] sm:blur-[160px] rounded-full pointer-events-none" />

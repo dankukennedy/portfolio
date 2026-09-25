@@ -10,7 +10,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-(--color-bg) text-fg overflow-x-hidden">
       <Navbar />
-      <main className="pt-0">
+      <main>
         <Hero />
         <About />
         <Service />
