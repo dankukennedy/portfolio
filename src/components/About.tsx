@@ -26,9 +26,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg)]"
+      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-bg"
     >
-      <div className="absolute top-1/3 -left-20 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-cyan-500/5 blur-[120px] sm:blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 -left-20 w-70 sm:w-125 h-70 sm:h-125 bg-cyan-500/5 blur-[120px] sm:blur-[150px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div
@@ -47,14 +47,14 @@ export default function About() {
           <motion.h2
             variants={fadeUp}
             custom={1}
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-fg mb-4"
           >
             Engineering with purpose
           </motion.h2>
           <motion.p
             variants={fadeUp}
             custom={2}
-            className="text-[var(--color-fg-soft)] text-base sm:text-lg px-2"
+            className="text-fg-soft text-base sm:text-lg px-2"
           >
             A blend of craft, curiosity, and disciplined execution — delivered
             from concept to production.
@@ -72,7 +72,7 @@ export default function About() {
           >
             <div className="relative group">
               <div className="absolute -inset-2 rounded-3xl bg-linear-to-br from-emerald-500/30 via-cyan-500/20 to-indigo-500/30 blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative w-64 h-72 xs:w-72 xs:h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
+              <div className="relative w-64 h-72 xs:w-72 xs:h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border border-border bg-surface">
                 <img
                   src={AboutImage}
                   alt="Danku Kennedy Edem"
@@ -98,7 +98,7 @@ export default function About() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="text-[var(--color-fg-soft)] text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 text-center lg:text-left"
+              className="text-fg-soft text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 text-center lg:text-left"
             >
               I design and engineer modern, scalable, and accessible web
               applications. My work spans frontend architecture, backend APIs,
@@ -111,7 +111,7 @@ export default function About() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm uppercase tracking-widest text-[var(--color-fg-muted)] mb-5 sm:mb-6"
+              className="flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm uppercase tracking-widest text-fg-muted mb-5 sm:mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
               Core Proficiencies
@@ -131,14 +131,14 @@ export default function About() {
                   className="space-y-2"
                 >
                   <div className="flex justify-between text-xs sm:text-sm gap-3">
-                    <span className="text-[var(--color-fg-soft)]">
+                    <span className="text-fg-soft">
                       {s.name}
                     </span>
                     <span className="text-emerald-500 font-mono shrink-0">
                       {s.level}%
                     </span>
                   </div>
-                  <div className="w-full h-1.5 rounded-full bg-[var(--color-fg)]/5 overflow-hidden">
+                  <div className="w-full h-1.5 rounded-full bg-fg/5 overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${s.level}%` }}
@@ -171,7 +171,7 @@ export default function About() {
               <div className="font-display text-2xl sm:text-3xl font-bold text-linear mb-1">
                 {s.value}
               </div>
-              <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[var(--color-fg-muted)]">
+              <p className="text-[10px] sm:text-xs uppercase tracking-widest text-fg-muted">
                 {s.label}
               </p>
             </motion.div>

@@ -53,7 +53,7 @@ export default function Navbar() {
             <span className="grid place-items-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-linear-to-br from-emerald-400 to-cyan-500 text-black font-bold font-display text-sm sm:text-base">
               D
             </span>
-            <span className="font-display font-semibold tracking-tight text-[var(--color-fg)] text-sm sm:text-base">
+            <span className="font-display font-semibold tracking-tight text-fg text-sm sm:text-base">
               D . K<span className="text-emerald-500"> Edem</span>
             </span>
           </a>
@@ -63,7 +63,7 @@ export default function Navbar() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="relative px-4 py-2 text-sm text-[var(--color-fg-soft)] hover:text-[var(--color-fg)] transition-colors rounded-lg group"
+                  className="relative px-4 py-2 text-sm text-fg-soft hover:text-fg transition-colors rounded-lg group"
                 >
                   {l.label}
                   <span className="absolute left-1/2 -translate-x-1/2 bottom-1 h-px w-0 bg-linear-to-r from-emerald-400 to-cyan-400 group-hover:w-6 transition-all duration-300" />
@@ -77,7 +77,7 @@ export default function Navbar() {
 
             <a
               href="#contact"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-[var(--color-fg)] text-[var(--color-bg)] hover:bg-emerald-500 hover:text-black transition-colors"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-fg text-bg hover:bg-emerald-500 hover:text-black transition-colors"
             >
               Hire Me
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -86,7 +86,7 @@ export default function Navbar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen((o) => !o)}
-              className="md:hidden grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl glass text-[var(--color-fg)]"
+              className="md:hidden grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl glass text-fg"
             >
               {open ? <HiX size={18} /> : <HiOutlineMenuAlt3 size={18} />}
             </button>
@@ -108,7 +108,7 @@ export default function Navbar() {
                     <a
                       href={l.href}
                       onClick={() => setOpen(false)}
-                      className="block px-4 py-3 rounded-xl text-sm text-[var(--color-fg-soft)] hover:text-[var(--color-fg)] hover:bg-[var(--color-fg)]/5 transition"
+                      className="block px-4 py-3 rounded-xl text-sm text-fg-soft hover:text-fg hover:bg-fg/5 transition"
                     >
                       {l.label}
                     </a>

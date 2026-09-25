@@ -13,6 +13,14 @@ export default function ThemeToggle({
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const next = isDark ? "light" : "dark";
 
+    // const isMobile = window.matchMedia("(max-width: 640px)").matches;
+
+    // // Fallback for mobile — simpler, no ripple animation
+    // if (!("startViewTransition" in document) || isMobile) {
+    //   toggleTheme();
+    //   return;
+    // }
+
     // Fallback for browsers without View Transitions
     if (!("startViewTransition" in document)) {
       toggleTheme();
@@ -53,7 +61,7 @@ export default function ThemeToggle({
     <button
       onClick={handleClick}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-      className={`relative grid place-items-center w-10 h-10 rounded-xl glass text-[var(--color-fg)] hover:border-emerald-500/40 transition-colors overflow-hidden ${className}`}
+      className={`relative grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl glass text-fg hover:border-emerald-500/40 transition-colors overflow-hidden shrink-0 ${className}`}
     >
       <motion.span
         key={theme}
@@ -64,9 +72,21 @@ export default function ThemeToggle({
         className="grid place-items-center"
       >
         {isDark ? (
-          <HiOutlineSun size={18} className="text-amber-300" />
+          <>
+            <HiOutlineSun size={16} className="sm:hidden text-amber-300" />
+            <HiOutlineSun
+              size={18}
+              className="hidden sm:block text-amber-300"
+            />
+          </>
         ) : (
-          <HiOutlineMoon size={18} className="text-indigo-500" />
+          <>
+            <HiOutlineMoon size={16} className="sm:hidden text-indigo-500" />
+            <HiOutlineMoon
+              size={18}
+              className="hidden sm:block text-indigo-500"
+            />
+          </>
         )}
       </motion.span>
     </button>

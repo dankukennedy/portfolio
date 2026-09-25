@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion} from "framer-motion";
 import { HiArrowRight, HiArrowLeft, HiOutlineCode } from "react-icons/hi";
 import { fadeUp, stagger } from "../lib/motion";
 
@@ -106,16 +106,16 @@ function Card({ project, index }: { project: ProjectItem; index: number }) {
       transition={{ type: "spring", stiffness: 280, damping: 22 }}
       className="group relative rounded-2xl glass overflow-hidden hover:border-emerald-500/40 transition-colors flex flex-col h-full"
     >
-      <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-surface)]">
+      <div className="relative aspect-16/10 overflow-hidden bg-(--color-surface)">
         <img
           src={project.image}
           alt={project.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
           draggable={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
 
-        <div className="absolute top-3 sm:top-4 right-3 sm:right-4 grid place-items-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl glass text-[var(--color-fg)] opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
+        <div className="absolute top-3 sm:top-4 right-3 sm:right-4 grid place-items-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl glass text-fg opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
           <HiArrowRight className="text-sm sm:text-base" />
         </div>
 
@@ -131,14 +131,14 @@ function Card({ project, index }: { project: ProjectItem; index: number }) {
       </div>
 
       <div className="p-4 sm:p-6 flex-1 flex flex-col">
-        <h3 className="font-display text-base sm:text-lg font-semibold text-[var(--color-fg)] mb-3 group-hover:text-emerald-500 transition-colors">
+        <h3 className="font-display text-base sm:text-lg font-semibold text-fg mb-3 group-hover:text-emerald-500 transition-colors">
           {project.name}
         </h3>
         <div className="flex flex-wrap gap-1.5 mt-auto">
           {project.technologies.split(",").map((t) => (
             <span
               key={t}
-              className="px-2 sm:px-2.5 py-1 text-[10px] sm:text-[11px] font-medium rounded-full bg-[var(--color-fg)]/5 border border-[var(--color-border)] text-[var(--color-fg-soft)]"
+              className="px-2 sm:px-2.5 py-1 text-[10px] sm:text-[11px] font-medium rounded-full bg-fg/5 border border-border text-fg-soft"
             >
               {t.trim()}
             </span>
@@ -174,10 +174,10 @@ function SectionHeader({
     <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6 sm:mb-8 gap-3 sm:gap-4">
       <div className="flex items-center gap-2 sm:gap-3">
         <span className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full ${dot}`} />
-        <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-semibold text-[var(--color-fg)] tracking-tight">
+        <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-semibold text-fg tracking-tight">
           {title}
         </h3>
-        <span className="text-[10px] sm:text-xs font-mono text-[var(--color-fg-muted)] ml-1">
+        <span className="text-[10px] sm:text-xs font-mono text-fg-muted ml-1">
           ({String(count).padStart(2, "0")})
         </span>
       </div>
@@ -185,7 +185,7 @@ function SectionHeader({
       <div className="flex items-center gap-3 self-end sm:self-auto">
         {showArrows && (
           <>
-            <span className="hidden sm:inline-block text-xs font-mono text-[var(--color-fg-muted)]">
+            <span className="hidden sm:inline-block text-xs font-mono text-fg-muted">
               {String((current ?? 0) + 1).padStart(2, "0")} /{" "}
               {String(total ?? 0).padStart(2, "0")}
             </span>
@@ -194,7 +194,7 @@ function SectionHeader({
                 type="button"
                 onClick={onPrev}
                 aria-label="Previous projects"
-                className="grid place-items-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl glass text-[var(--color-fg)] hover:border-emerald-500/40 hover:text-emerald-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                className="grid place-items-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl glass text-fg hover:border-emerald-500/40 hover:text-emerald-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 <HiArrowLeft className="text-sm sm:text-base" />
               </button>
@@ -202,7 +202,7 @@ function SectionHeader({
                 type="button"
                 onClick={onNext}
                 aria-label="Next projects"
-                className="grid place-items-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl glass text-[var(--color-fg)] hover:border-emerald-500/40 hover:text-emerald-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                className="grid place-items-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl glass text-fg hover:border-emerald-500/40 hover:text-emerald-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 <HiArrowRight className="text-sm sm:text-base" />
               </button>
@@ -284,8 +284,8 @@ function ProjectSlider({
       />
 
       <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-12 bg-gradient-to-r from-[var(--color-bg)] to-transparent z-10 opacity-60" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-12 bg-gradient-to-l from-[var(--color-bg)] to-transparent z-10 opacity-60" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-12 bg-linear-to-r from-(--color-bg) to-transparent z-10 opacity-60" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-12 bg-linear-to-l from-(--color-bg) to-transparent z-10 opacity-60" />
 
         <div className="overflow-hidden">
           <motion.div
@@ -322,7 +322,7 @@ function ProjectSlider({
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   i === index
                     ? "w-6 sm:w-8 bg-emerald-500"
-                    : "w-1.5 bg-[var(--color-fg)]/20 hover:bg-[var(--color-fg)]/40"
+                    : "w-1.5 bg-fg/20 hover:bg-fg/40"
                 }`}
               />
             ))}
@@ -339,9 +339,9 @@ export default function Project() {
   return (
     <section
       id="project"
-      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg)]"
+      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg(--color-bg)"
     >
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-emerald-500/5 blur-[120px] sm:blur-[180px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-75 sm:w-150 h-75 sm:h-150 bg-emerald-500/5 blur-[120px] sm:blur-[180px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div
@@ -360,14 +360,14 @@ export default function Project() {
           <motion.h2
             variants={fadeUp}
             custom={1}
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-fg mb-4"
           >
             Selected work
           </motion.h2>
           <motion.p
             variants={fadeUp}
             custom={2}
-            className="text-[var(--color-fg-soft)] text-base sm:text-lg px-2"
+            className="text-fg-soft text-base sm:text-lg px-2"
           >
             A curated set of client websites and robust database-driven systems.
           </motion.p>
@@ -411,7 +411,7 @@ export default function Project() {
             href="https://github.com/dankukennedy"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold rounded-xl glass text-[var(--color-fg)] hover:border-emerald-500/40 transition-colors"
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold rounded-xl glass text-fg hover:border-emerald-500/40 transition-colors"
           >
             <HiOutlineCode />
             See more on GitHub

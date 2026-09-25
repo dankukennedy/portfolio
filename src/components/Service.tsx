@@ -46,9 +46,9 @@ export default function Service() {
   return (
     <section
       id="service"
-      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--color-bg-soft)]"
+      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 md:px-12 lg:px-20 overflow-hidden bg-bg-soft"
     >
-      <div className="absolute top-1/2 right-0 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-emerald-500/5 blur-[120px] sm:blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-70 sm:w-125 h-70 sm:h-125 bg-emerald-500/5 blur-[120px] sm:blur-[160px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div
@@ -67,14 +67,14 @@ export default function Service() {
           <motion.h2
             variants={fadeUp}
             custom={1}
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-fg)] mb-4"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-fg mb-4"
           >
             What I do best
           </motion.h2>
           <motion.p
             variants={fadeUp}
             custom={2}
-            className="text-[var(--color-fg-soft)] text-base sm:text-lg px-2"
+            className="text-fg-soft text-base sm:text-lg px-2"
           >
             Full-spectrum engineering services — designed to take your product
             from idea to impact.
@@ -102,19 +102,19 @@ export default function Service() {
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-emerald-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="relative flex items-center justify-between mb-6 sm:mb-8">
-                  <div className="grid place-items-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-[var(--color-border)] text-emerald-500">
+                  <div className="grid place-items-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-linear-to-br from-emerald-500/20 to-cyan-500/20 border border-border text-emerald-500">
                     <Icon size={18} className="sm:hidden" />
                     <Icon size={22} className="hidden sm:block" />
                   </div>
-                  <span className="font-mono text-xs text-[var(--color-fg-muted)]">
+                  <span className="font-mono text-xs text-fg-muted">
                     0{i + 1}
                   </span>
                 </div>
 
-                <h3 className="relative font-display text-lg sm:text-xl font-semibold text-[var(--color-fg)] mb-2 group-hover:text-emerald-500 transition-colors">
+                <h3 className="relative font-display text-lg sm:text-xl font-semibold text-fg mb-2 group-hover:text-emerald-500 transition-colors">
                   {s.title}
                 </h3>
-                <p className="relative text-xs sm:text-sm text-[var(--color-fg-soft)] leading-relaxed">
+                <p className="relative text-xs sm:text-sm text-fg-soft leading-relaxed">
                   {s.desc}
                 </p>
               </motion.div>
